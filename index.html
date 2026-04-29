@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reparación de PC en Quilmes | Servicio Técnico – FMD Computación</title>
+  <meta name="description" content="Servicio técnico de computadoras en Quilmes. Reparación de PC, limpieza, mantenimiento y armado a medida. Atención rápida y presupuesto sin cargo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #000000;
+      --bg2:     #3a3a3a;
+      --text:    #ffffff;
+      --accent:  #06ebd4;
+      --accent2: #04b8a8;
+      --card:    #1a1a1a;
+      --border:  rgba(6,235,212,0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .nav-logo {
+      font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px;
+      color: var(--text); flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: #000; border: none; border-radius: 8px;
+      padding: .55rem 1.2rem; font-weight: 700; font-size: .875rem;
+      cursor: pointer; text-decoration: none; transition: background .2s, transform .15s;
+      flex-shrink: 0;
+    }
+    .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    /* Hamburger button */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 4px;
+      background: none; border: none; flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+      transform-origin: center;
+    }
+    /* X animation when open */
+    nav.menu-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.menu-open .nav-hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile dropdown */
+    .nav-mobile-menu {
+      display: none;
+      flex-direction: column;
+      padding: 1rem 1.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      gap: .25rem;
+    }
+    nav.menu-open .nav-mobile-menu { display: flex; }
+    .nav-mobile-menu a {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      font-size: 1rem; font-weight: 500; padding: .75rem .5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: color .2s;
+    }
+    .nav-mobile-menu a:last-of-type { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--accent); }
+    .nav-mobile-cta {
+      margin-top: .75rem;
+      background: var(--accent); color: #000 !important;
+      text-align: center; border-radius: 10px;
+      font-weight: 800 !important; padding: .85rem !important;
+      border-bottom: none !important;
+    }
+    .nav-mobile-cta:hover { background: var(--accent2); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 7rem 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(6,235,212,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 60%, rgba(6,235,212,0.06) 0%, transparent 60%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; max-width: 1100px; width: 100%;
+    }
+    .hero-text { }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(6,235,212,0.1); border: 1px solid var(--border);
+      border-radius: 100px; padding: .35rem .9rem;
+      font-size: .8rem; font-weight: 600; color: var(--accent);
+      margin-bottom: 1.5rem; letter-spacing: .5px;
+    }
+    .hero-badge::before { content: '●'; font-size: .5rem; animation: blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-desc {
+      font-size: 1.1rem; color: rgba(255,255,255,0.7);
+      margin-bottom: 2rem; max-width: 440px;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #000;
+      padding: .85rem 2rem; border-radius: 10px;
+      font-weight: 800; font-size: 1rem; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 0 24px rgba(6,235,212,0.4);
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 0 36px rgba(6,235,212,0.55); }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      padding: .85rem 2rem; border-radius: 10px;
+      font-weight: 700; font-size: 1rem; text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      transition: border-color .2s, background .2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); background: rgba(6,235,212,0.08); }
+
+    /* Hero profile card */
+    .hero-profile {
+      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+    }
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 2rem 2rem 1.5rem;
+      display: flex; flex-direction: column; align-items: center;
+      width: 100%; max-width: 320px;
+      box-shadow: 0 0 60px rgba(6,235,212,0.1);
+      position: relative;
+    }
+    .profile-photo-wrap {
+      position: relative; width: 100px; height: 100px; margin-bottom: 1rem;
+    }
+    .profile-photo-wrap::before {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), transparent, var(--accent2));
+      animation: rotate 4s linear infinite;
+    }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+    .profile-photo-wrap img {
+      position: relative; z-index: 1;
+      width: 100px; height: 100px;
+      border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--bg);
+      display: block;
+    }
+    .profile-name {
+      font-weight: 800; font-size: 1.1rem; text-align: center;
+    }
+    .profile-handle {
+      color: var(--accent); font-size: .85rem; margin-bottom: .75rem;
+    }
+    .profile-bio {
+      font-size: .82rem; color: rgba(255,255,255,0.65);
+      text-align: center; margin-bottom: 1.25rem; line-height: 1.5;
+    }
+    .profile-stats {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 0; width: 100%;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: .7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: .5px; }
+
+    /* Mini grid */
+    .mini-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 3px; width: 100%; max-width: 320px; border-radius: 12px; overflow: hidden;
+    }
+    .mini-grid img {
+      width: 100%; aspect-ratio: 1; object-fit: cover;
+      display: block; transition: transform .3s;
+    }
+    .mini-grid img:hover { transform: scale(1.05); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem;
+    }
+    .stats-bar-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1rem; text-align: center;
+    }
+    .sbar-num { font-size: 2rem; font-weight: 900; color: var(--accent); }
+    .sbar-label { font-size: .85rem; color: rgba(255,255,255,0.6); }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 6rem 2rem; }
+    .section-label {
+      font-size: .8rem; font-weight: 700; letter-spacing: 2px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+    .section-title em { font-style: normal; color: var(--accent); }
+    .section-desc { color: rgba(255,255,255,0.6); max-width: 500px; }
+    .section-head { margin-bottom: 3.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    #servicios { background: var(--bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      cursor: default;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(6,235,212,0.12);
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(6,235,212,0.1); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+    }
+    .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
+    .service-card p { font-size: .88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* ── GALLERY ── */
+    #galeria { background: var(--bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .gallery-item {
+      position: relative; border-radius: 12px; overflow: hidden;
+      aspect-ratio: 1; cursor: pointer;
+      border: 1px solid var(--border);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+      transition: transform .4s;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item .overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .3s;
+    }
+    .gallery-item:hover .overlay { opacity: 1; }
+    .overlay-icon { font-size: 2rem; }
+    .gallery-cta {
+      text-align: center; margin-top: 2.5rem;
+    }
+
+    /* ── WHY US ── */
+    #por-que { background: var(--bg2); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .why-item { display: flex; gap: 1rem; }
+    .why-check {
+      width: 32px; height: 32px; min-width: 32px;
+      background: rgba(6,235,212,0.15); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-weight: 900; font-size: 1rem;
+      border: 1px solid var(--border);
+    }
+    .why-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
+    .why-item p { font-size: .85rem; color: rgba(255,255,255,0.6); }
+
+    /* ── CONTACT ── */
+    #contacto { background: var(--bg); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 4rem; align-items: start;
+    }
+    .contact-info h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+    .contact-info p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .contact-item:last-of-type { border-bottom: none; }
+    .contact-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      background: rgba(6,235,212,0.1); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; border: 1px solid var(--border);
+    }
+    .contact-label { font-size: .75rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: .5px; }
+    .contact-val { font-size: .95rem; font-weight: 600; }
+    .contact-val a { color: var(--text); text-decoration: none; }
+    .contact-val a:hover { color: var(--accent); }
+
+    /* Form */
+    .contact-form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 2.5rem;
+    }
+    .contact-form h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1rem; }
+    .form-group label { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,0.7); }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px; padding: .8rem 1rem;
+      color: var(--text); font-size: .9rem;
+      transition: border-color .2s;
+      outline: none;
+      font-family: inherit;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--accent); }
+    .form-group select option { background: #1a1a1a; }
+    .btn-form {
+      width: 100%; background: var(--accent); color: #000;
+      padding: .9rem; border: none; border-radius: 10px;
+      font-weight: 800; font-size: 1rem; cursor: pointer;
+      transition: background .2s, transform .15s;
+      margin-top: .5rem;
+    }
+    .btn-form:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-brand .nav-logo { font-size: 1.4rem; }
+    .footer-brand p { font-size: .82rem; color: rgba(255,255,255,0.45); margin-top: .3rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a {
+      color: rgba(255,255,255,0.55); text-decoration: none;
+      font-size: .85rem; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-social { display: flex; gap: .75rem; }
+    .social-btn {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1rem;
+      transition: background .2s, border-color .2s;
+    }
+    .social-btn:hover { background: rgba(6,235,212,0.15); border-color: var(--accent); }
+    .footer-copy {
+      max-width: 1100px; margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: .78rem; color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+      background: #25d366; color: #fff;
+      width: 58px; height: 58px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1.6rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.65); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-desc { margin: 0 auto 2rem; }
+      .hero-btns { justify-content: center; }
+      .hero-profile { align-items: center; }
+      .stats-bar-inner { grid-template-columns: repeat(2,1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-bar { padding: .75rem 1.25rem; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-bar">
+    <span class="nav-logo">FMD<span>.</span></span>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Trabajos</a></li>
+      <li><a href="#por-que">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/5491128352176" target="_blank" class="nav-cta">WhatsApp</a>
+    <button class="nav-hamburger" aria-label="Abrir menú" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu">
+    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <a href="#galeria" onclick="closeMenu()">Trabajos</a>
+    <a href="#por-que" onclick="closeMenu()">Nosotros</a>
+    <a href="#contacto" onclick="closeMenu()">Contacto</a>
+    <a href="https://wa.me/5491128352176" target="_blank" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>
+  </div>
+</nav>
+<script>
+  function toggleMenu() {
+    document.getElementById('main-nav').classList.toggle('menu-open');
+  }
+  function closeMenu() {
+    document.getElementById('main-nav').classList.remove('menu-open');
+  }
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Servicio técnico en Quilmes</div>
+      <h1>Tu PC en las<br>mejores <em>manos</em></h1>
+      <p class="hero-desc">
+        Reparamos, armamos y mantenemos computadoras en Quilmes.
+        Presupuesto sin cargo. Respuesta rápida.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5491128352176?text=Hola!%20Necesito%20un%20presupuesto" target="_blank" class="btn-primary">Pedir presupuesto</a>
+        <a href="#servicios" class="btn-secondary">Ver servicios</a>
+      </div>
+    </div>
+
+    <div class="hero-profile">
+      <div class="profile-card">
+        <div class="profile-photo-wrap">
+          <img src="assets/profile.jpg" alt="FMD Computación" />
+        </div>
+        <div class="profile-name">FMD Computación</div>
+        <div class="profile-handle">@fmdcomputacion</div>
+        <div class="profile-bio">🪛 Reparación, mantenimiento, actualizaciones<br>🖥️ Armamos PC según tus necesidades</div>
+        <div class="profile-stats">
+          <div class="stat"><div class="stat-num">35</div><div class="stat-label">Posts</div></div>
+          <div class="stat"><div class="stat-num">217</div><div class="stat-label">Seguidores</div></div>
+          <div class="stat"><div class="stat-num">103</div><div class="stat-label">Siguiendo</div></div>
+        </div>
+      </div>
+
+      <div class="mini-grid">
+        <img src="assets/post1.jpg" alt="Trabajo FMD" />
+        <img src="assets/post2.jpg" alt="Trabajo FMD" />
+        <img src="assets/post3.jpg" alt="Trabajo FMD" />
+        <img src="assets/post4.jpg" alt="Trabajo FMD" />
+        <img src="assets/post5.jpg" alt="Trabajo FMD" />
+        <img src="assets/post6.jpg" alt="Trabajo FMD" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div>
+      <div class="sbar-num">+35</div>
+      <div class="sbar-label">Trabajos publicados</div>
+    </div>
+    <div>
+      <div class="sbar-num">217</div>
+      <div class="sbar-label">Seguidores en Instagram</div>
+    </div>
+    <div>
+      <div class="sbar-num">Quilmes</div>
+      <div class="sbar-label">Buenos Aires</div>
+    </div>
+    <div>
+      <div class="sbar-num">$0</div>
+      <div class="sbar-label">Presupuesto sin cargo</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Lo que hacemos</div>
+      <h2 class="section-title">Servicios <em>técnicos</em></h2>
+      <p class="section-desc">Soluciones completas para tu computadora. Desde reparaciones urgentes hasta armados a medida.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Reparación y mantenimiento</h3>
+        <p>Diagnóstico completo, reparación de fallas de hardware y software. Tu equipo vuelve a funcionar como nuevo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🖥️</div>
+        <h3>Armado de PC a medida</h3>
+        <p>Armamos la PC ideal según tu presupuesto y necesidades: gaming, trabajo, diseño o uso diario.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧹</div>
+        <h3>Limpieza y optimización</h3>
+        <p>Limpieza interna profunda y cambio de pasta térmica. Tu equipo tira menos calor y anda más rápido.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Actualizaciones de hardware</h3>
+        <p>Sumamos RAM, SSD, placa de video o lo que necesites para darle una segunda vida a tu equipo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💾</div>
+        <h3>Recuperación de datos</h3>
+        <p>Recuperamos tus archivos de discos dañados, sistemas bloqueados o formateos accidentales.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔒</div>
+        <h3>Servicio técnico general</h3>
+        <p>Virus, pantallazos azules, Windows que no arranca, BitLocker — lo que sea, lo resolvemos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Nuestros trabajos</div>
+      <h2 class="section-title">Galería <em>real</em></h2>
+      <p class="section-desc">Fotos reales de equipos que pasaron por nuestras manos. Sin filtros, sin stock photos.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/post1.jpg" alt="Trabajo FMD Computación" />
+        <div class="overlay"><div class="overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/post2.jpg" alt="Trabajo FMD Computación" />
+        <div class="overlay"><div class="overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/post3.jpg" alt="Trabajo FMD Computación" />
+        <div class="overlay"><div class="overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/post4.jpg" alt="Trabajo FMD Computación" />
+        <div class="overlay"><div class="overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/post5.jpg" alt="Trabajo FMD Computación" />
+        <div class="overlay"><div class="overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/post6.jpg" alt="Trabajo FMD Computación" />
+        <div class="overlay"><div class="overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/post7.jpg" alt="Trabajo FMD Computación" />
+        <div class="overlay"><div class="overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/post8.jpg" alt="Trabajo FMD Computación" />
+        <div class="overlay"><div class="overlay-icon">🔍</div></div>
+      </div>
+    </div>
+    <div class="gallery-cta">
+      <a href="https://www.instagram.com/fmdcomputacion/" target="_blank" class="btn-secondary">
+        Ver más en Instagram →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ -->
+<section id="por-que">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Por qué elegirnos</div>
+      <h2 class="section-title">Tus datos en <em>buenas manos</em></h2>
+      <p class="section-desc">Trabajamos con transparencia, velocidad y resultados reales.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Presupuesto sin cargo</h4>
+          <p>Antes de arrancar, te decimos cuánto cuesta. Sin sorpresas.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Solo usamos repuestos reales</h4>
+          <p>Nada de componentes genéricos sin garantía. Calidad comprobada.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Respuesta rápida por WhatsApp</h4>
+          <p>Te respondemos rápido y hacemos el seguimiento de tu equipo.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Zona Quilmes y alrededores</h4>
+          <p>Atendemos en Quilmes, Bernal, Berazategui y zona sur del GBA.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Tus datos, siempre seguros</h4>
+          <p>Antes de formatear, te avisamos y hacemos backup si hace falta.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Trabajo documentado</h4>
+          <p>Publicamos nuestros trabajos en Instagram. Lo que hacemos, lo mostramos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Escribinos</div>
+      <h2 class="section-title">¿En qué podemos <em>ayudarte?</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contacto directo</h3>
+        <p>Mandanos un mensaje por WhatsApp o llenás el formulario y te respondemos cuanto antes.</p>
+
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-val"><a href="https://wa.me/5491128352176" target="_blank">+54 9 11 2835-2176</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val"><a href="mailto:fmdcomputacion@gmail.com">fmdcomputacion@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Ubicación</div>
+            <div class="contact-val">Quilmes, Buenos Aires</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📸</div>
+          <div>
+            <div class="contact-label">Instagram</div>
+            <div class="contact-val"><a href="https://www.instagram.com/fmdcomputacion/" target="_blank">@fmdcomputacion</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Pedir presupuesto</h3>
+        <form action="mailto:fmdcomputacion@gmail.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Teléfono / WhatsApp</label>
+              <input type="tel" name="telefono" placeholder="11 xxxx-xxxx" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Servicio que necesitás</label>
+            <select name="servicio">
+              <option value="">Seleccioná una opción</option>
+              <option>Reparación de PC o notebook</option>
+              <option>Armado de PC a medida</option>
+              <option>Limpieza y mantenimiento</option>
+              <option>Actualización de hardware</option>
+              <option>Recuperación de datos</option>
+              <option>Otro / No sé qué tiene</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Contanos el problema</label>
+            <textarea name="mensaje" rows="4" placeholder="Describí brevemente qué le pasa a tu equipo..."></textarea>
+          </div>
+          <button type="submit" class="btn-form">Enviar consulta</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">FMD<span style="color:var(--accent)">.</span></div>
+      <p>Armado y reparación de computadoras · Quilmes, BA</p>
+    </div>
+    <div class="footer-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Trabajos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/fmdcomputacion/" target="_blank" class="social-btn" title="Instagram">📸</a>
+      <a href="https://wa.me/5491128352176" target="_blank" class="social-btn" title="WhatsApp">💬</a>
+      <a href="mailto:fmdcomputacion@gmail.com" class="social-btn" title="Email">✉️</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    © 2025 FMD Computación · Quilmes, Buenos Aires · +54 9 11 2835-2176
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5491128352176?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar" target="_blank" class="wa-float" title="Escribinos por WhatsApp">
+  💬
+</a>
+
+</body>
+</html>
