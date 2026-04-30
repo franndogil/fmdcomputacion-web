@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios | FMD Computación – Quilmes</title>
+  <meta name="description" content="Todos los servicios técnicos de FMD Computación en Quilmes. Reparación, mantenimiento, armado y más. Precios claros, sin sorpresas." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/servicios.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/nav.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-bar">
+    <a href="index.html" class="nav-logo"><img src="/assets/navIcon.png" alt=""><span></span></a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="index.html#galeria">Trabajos</a></li>
+      <li><a href="index.html#por-que">Nosotros</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/5491128352176" target="_blank" class="nav-cta">WhatsApp</a>
+    <button class="nav-hamburger" aria-label="Abrir menú" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu">
+    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <a href="index.html#galeria" onclick="closeMenu()">Trabajos</a>
+    <a href="index.html#por-que" onclick="closeMenu()">Nosotros</a>
+    <a href="index.html#contacto" onclick="closeMenu()">Contacto</a>
+    <a href="https://wa.me/5491128352176" target="_blank" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>
+  </div>
+</nav>
+<script>
+  function toggleMenu() {
+    document.getElementById('main-nav').classList.toggle('menu-open');
+  }
+  function closeMenu() {
+    document.getElementById('main-nav').classList.remove('menu-open');
+  }
+</script>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Lo que ofrecemos</div>
+      <h1 class="section-title">Nuestros <em>servicios</em></h1>
+      <p class="section-desc">Soluciones completas para tu computadora. Precios claros, sin sorpresas.</p>
+    </div>
+    <div class="services-grid" id="servicios-container"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo"><img src="/assets/navIcon.png" alt=""><span style="color:var(--accent)"></span></div>
+      <p>Armado y reparación de computadoras · Quilmes, BA</p>
+    </div>
+    <div class="footer-links">
+      <a href="#servicios">Servicios</a>
+      <a href="/index.html#galeria">Trabajos</a>
+      <a href="/index.html#contacto">Contacto</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://wa.me/5491128352176" target="_blank" class="social-btn" title="WhatsApp"><img src="/assets/icons/whatsapp_white.png" alt=""></a>
+      <a href="https://www.instagram.com/fmdcomputacion/" target="_blank" class="social-btn" title="Instagram"><img src="/assets/icons/instragram_white.png" alt=""></a>
+      <a href="https://www.tiktok.com/@fmdcomputacion" target="_blank" class="social-btn" title="TikTok"><img src="/assets/icons/tiktok_white.png" alt=""></a>
+      <a href="https://www.youtube.com/@FMD_Vlogs" target="_blank" class="social-btn" title="YouTube"><img src="/assets/icons/youtube_white.png" alt=""></a>
+      <a href="https://www.facebook.com/FMDCOMPUTACION" target="_blank" class="social-btn" title="Facebook"><img src="/assets/icons/facebook_white.png" alt=""></a>
+      <a href="mailto:fmdcomputacion@gmail.com" class="social-btn" title="Email"><img src="/assets/icons/email_white.png" alt=""></a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    © 2026 FMD Computación · Quilmes, Buenos Aires · +54 9 11 2835-2176<br>
+    <p>Lunes a Viernes de 9:00 a 19:00<br>Sábados de 9:00 a 14:00</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5491128352176?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar" target="_blank" class="wa-float" title="Escribinos por WhatsApp">
+  <img src="/assets/icons/whatsapp_white.png" alt="">
+</a>
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const client = window.supabase.createClient(
+    "https://eitdlwqfyoxthrumjmie.supabase.co",
+    "sb_publishable_t_E6Cc-y4LadGdsS4KPUxQ_qcbnGbRP"
+  );
+
+  async function cargarServicios() {
+    const { data, error } = await client.from("servicios").select("*");
+    if (error) { console.error(error); return; }
+
+    data.sort((a, b) => {
+    const categoriaCompare = a.categoria.localeCompare(b.categoria);
+    if (categoriaCompare !== 0) return categoriaCompare;
+      return a.titulo.localeCompare(b.titulo);
+    });
+    
+    renderServicios(data);
+  }
+
+  function renderServicios(servicios) {
+  const container = document.getElementById("servicios-container");
+
+  const activos = servicios.filter(s => s.activo === true);
+
+  if (activos.length === 0) {
+    container.innerHTML = "<p>No hay servicios disponibles</p>";
+    return;
+  }
+
+  // Ordenar por categoría + título (interno, no visible)
+  activos.sort((a, b) =>
+    a.categoria.localeCompare(b.categoria) ||
+    a.titulo.localeCompare(b.titulo)
+  );
+
+  container.innerHTML = `
+    <div class="services-grid">
+      ${activos.map(s => {
+        const msg = encodeURIComponent(s.mensaje || "");
+
+        let precioHTML = "";
+
+        const precio = Number(s.precio);
+        const requierePresupuesto =
+          s.requiere_presupuesto === true || s.requiere_presupuesto === "true";
+
+        if (requierePresupuesto) {
+          precioHTML = `<span class="service-price">Presupuesto sin cargo</span>`;
+        } else if (!isNaN(precio) && precio === 0) {
+          precioHTML = `<span class="service-price">Gratis</span>`;
+        } else if (!isNaN(precio) && precio > 0) {
+          precioHTML = `<span class="service-price">Desde: $${precio.toLocaleString("es-AR")}</span>`;
+        }
+
+        return `
+          <div class="service-card">
+            <img src="${s.imagen || ""}" alt="${s.titulo}" />
+            <h3>${s.titulo}</h3>
+            <p>${s.descripcion || ""}</p>
+            ${precioHTML}
+            <a href="https://wa.me/5491128352176?text=${msg}" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem">
+              Consultar por WhatsApp
+            </a>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+cargarServicios();
+</script>
+
+</body>
+</html>
