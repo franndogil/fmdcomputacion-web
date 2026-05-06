@@ -21,10 +21,10 @@
   <div class="nav-bar">
     <a href="index.html" class="nav-logo"><img src="/assets/navIcon.png" alt=""><span></span></a>
     <ul class="nav-links">
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="index.html#galeria">Trabajos</a></li>
-      <li><a href="index.html#por-que">Nosotros</a></li>
-      <li><a href="index.html#contacto">Contacto</a></li>
+      <li><a href="/servicios.html">Servicios</a></li>
+      <li><a href="/index.html#galeria">Trabajos</a></li>
+      <li><a href="/index.html#por-que">Nosotros</a></li>
+      <li><a href="/index.html#contacto">Contacto</a></li>
     </ul>
     <a href="https://wa.me/5491128352176" target="_blank" class="nav-cta">WhatsApp</a>
     <button class="nav-hamburger" aria-label="Abrir menú" onclick="toggleMenu()">
@@ -32,21 +32,13 @@
     </button>
   </div>
   <div class="nav-mobile-menu">
-    <a href="#servicios" onclick="closeMenu()">Servicios</a>
-    <a href="index.html#galeria" onclick="closeMenu()">Trabajos</a>
-    <a href="index.html#por-que" onclick="closeMenu()">Nosotros</a>
-    <a href="index.html#contacto" onclick="closeMenu()">Contacto</a>
+    <a href="/servicios.html" onclick="closeMenu()">Servicios</a>
+    <a href="/index.html#galeria" onclick="closeMenu()">Trabajos</a>
+    <a href="/index.html#por-que" onclick="closeMenu()">Nosotros</a>
+    <a href="/index.html#contacto" onclick="closeMenu()">Contacto</a>
     <a href="https://wa.me/5491128352176" target="_blank" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>
   </div>
 </nav>
-<script>
-  function toggleMenu() {
-    document.getElementById('main-nav').classList.toggle('menu-open');
-  }
-  function closeMenu() {
-    document.getElementById('main-nav').classList.remove('menu-open');
-  }
-</script>
 
 <!-- SERVICIOS -->
 <section id="servicios">
@@ -67,8 +59,9 @@
       <p>Armado y reparación de computadoras · Quilmes, BA</p>
     </div>
     <div class="footer-links">
-      <a href="#servicios">Servicios</a>
+      <a href="/servicios.html">Servicios</a>
       <a href="/index.html#galeria">Trabajos</a>
+      <a href="/faqs.html">FAQs</a>
       <a href="/index.html#contacto">Contacto</a>
     </div>
     <div class="footer-social">
@@ -81,15 +74,18 @@
     </div>
   </div>
   <div class="footer-copy">
-    © 2026 FMD Computación · Quilmes, Buenos Aires · +54 9 11 2835-2176<br>
-    <p>Lunes a Viernes de 9:00 a 19:00<br>Sábados de 9:00 a 14:00</p>
-  </div>
+      © 2026 FMDCOMPUTACION · Quilmes, Buenos Aires · +54 9 11 2835-2176<br>
+      <p>Lunes a Viernes de 9:00 a 19:00<br>Sábados de 9:00 a 14:00</p>
+    </div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/5491128352176?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar" target="_blank" class="wa-float" title="Escribinos por WhatsApp">
   <img src="/assets/icons/whatsapp_white.png" alt="">
 </a>
+
+<!-- Scripts -->
+<script src="js/nav.js"></script>
 
 <!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -150,12 +146,19 @@
         return `
           <div class="service-card">
             <img src="${s.imagen || ""}" alt="${s.titulo}" />
-            <h3>${s.titulo}</h3>
-            <p>${s.descripcion || ""}</p>
-            ${precioHTML}
-            <a href="https://wa.me/5491128352176?text=${msg}" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem">
-              Consultar por WhatsApp
-            </a>
+            <div class="service-body">
+              <div class="service-summary">
+                <h3>${s.titulo}</h3>
+                ${precioHTML}
+                <button class="service-toggle" onclick="this.closest('.service-card').classList.toggle('open')" aria-label="Ver detalle">▾</button>
+              </div>
+              <div class="service-details">
+                <p>${s.descripcion || ""}</p>
+                <a href="https://wa.me/5491128352176?text=${msg}" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem">
+                  Consultar por WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         `;
       }).join("")}

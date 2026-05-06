@@ -8,3 +8,111 @@
       display: inline-block; margin-top: 1rem;
       font-size: 1.1rem; font-weight: 800; color: var(--accent);
     }
+    .service-toggle { display: none; }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem;
+      }
+
+      /* ── Card colapsada ── */
+      .service-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem !important;
+      }
+      .service-card img {
+        width: 100px;
+        height: 100px;
+        max-height: 100px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        border-radius: 8px;
+        transition: width 0.45s ease, height 0.45s ease, max-height 0.45s ease,
+                    border-radius 0.45s ease, margin-bottom 0.3s ease;
+      }
+      .service-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .service-summary {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .service-summary h3 {
+        flex: 1 1 100%;
+        font-size: 0.88rem !important;
+        margin-bottom: 0.15rem;
+      }
+      .service-price {
+        font-size: 0.88rem;
+        margin-top: 0.15rem;
+        flex: 1;
+      }
+      .service-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(6,235,212,0.1);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--accent);
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+        font-size: 1.1rem;
+        transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                    background 0.3s ease;
+      }
+      .service-toggle:active {
+        background: rgba(6,235,212,0.2);
+      }
+
+      /* ── Detalles: siempre presentes, animados con max-height ── */
+      .service-details {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.4s ease;
+      }
+      .service-details p {
+        font-size: 0.83rem;
+        color: rgba(255,255,255,0.6);
+        line-height: 1.55;
+        margin-bottom: 0.5rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        margin-top: 0.6rem;
+      }
+      .service-details .btn-primary {
+        font-size: 0.85rem !important;
+        padding: 0.6rem 1rem !important;
+        margin-top: 0.75rem !important;
+      }
+
+      /* ── Card expandida ── */
+      .service-card.open {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .service-card.open img {
+        width: 100%;
+        height: 180px;
+        max-height: 180px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+      .service-card.open .service-toggle {
+        transform: rotate(180deg);
+      }
+      .service-card.open .service-details {
+        max-height: 600px;
+        opacity: 1;
+      }
+    }
