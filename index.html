@@ -104,49 +104,49 @@
           <p class="section-desc">Soluciones completas para tu computadora. Desde reparaciones urgentes hasta armados a medida.</p>
         </div>
         <div class="services-grid">
-          <div class="service-card">
+          <a class="service-card" href="servicios.html?cat=Reparacion">
             <div class="service-icon">🛠️</div>
             <h3>Reparación de PC</h3>
             <p>Diagnóstico y solución de fallas en computadoras. Detectamos el problema y lo resolvemos de forma clara y efectiva.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a class="service-card" href="servicios.html?cat=Armado">
             <div class="service-icon">🖥️</div>
             <h3>Armado de PC</h3>
             <p>Armamos tu computadora a medida según tu presupuesto y necesidades: gaming, trabajo o uso diario.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a class="service-card" href="servicios.html?cat=Limpieza">
             <div class="service-icon">🧹</div>
             <h3>Limpieza de PC</h3>
             <p>Limpieza interna y mantenimiento físico para mejorar temperaturas, rendimiento y prolongar la vida útil del equipo.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a class="service-card" href="servicios.html?cat=Software">
             <div class="service-icon">💻</div>
             <h3>Software y optimización</h3>
             <p>Instalación de sistema operativo, formateo, optimización y solución de problemas de rendimiento.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a class="service-card" href="servicios.html?cat=Hardware">
             <div class="service-icon">⚡</div>
             <h3>Hardware y mejoras</h3>
             <p>Actualizamos componentes como RAM, SSD o placa de video para mejorar el rendimiento de tu equipo.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a class="service-card" href="servicios.html?cat=Redes">
             <div class="service-icon">🌐</div>
             <h3>Redes y conectividad</h3>
             <p>Instalación de redes cableadas, configuración WiFi y cámaras de seguridad para hogares y negocios.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a class="service-card" href="servicios.html?cat=Web">
             <div class="service-icon">🌐</div>
             <h3>Diseño de páginas web</h3>
             <p>Creamos páginas web modernas, rápidas y adaptadas a celulares para negocios, emprendimientos y marcas.</p>
-          </div>
-          <div class="service-card">
+          </a>
+          <a class="service-card" href="servicios.html?cat=Recuperacion">
             <div class="service-icon">🔐</div>
             <h3>Recuperación de datos</h3>
             <p>Recuperamos archivos de discos dañados, sistemas bloqueados o errores de almacenamiento.</p>
-          </div>
+          </a>
         </div>
         <div class="gallery-cta">
-          <a href="servicios.html" class="btn-secondary">Ver todos los servicios →</a>
+          <a href="servicios.html?cat=az" class="btn-secondary">Ver todos los servicios →</a>
         </div>
       </div>
     </section>
@@ -253,6 +253,13 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="faqs">
+      <div class="footer-faq-cta">
+        <p>¿Tenés alguna duda?</p>
+        <a href="/faqs.html">Ver preguntas frecuentes</a>
       </div>
     </section>
 
@@ -364,13 +371,45 @@
         </div>
     </footer>
 
+    <!-- VER SERVICIOS FLOAT -->
+    <a href="servicios.html?cat=az" class="servicios-float" id="servicios-float">Ver servicios →</a>
+
     <!-- WHATSAPP FLOAT -->
     <a href="https://wa.me/5491128352176?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar" target="_blank" class="wa-float" title="Escribinos por WhatsApp">
       <img src="/assets/icons/whatsapp_white.png" alt="">
     </a>
 
     <!-- Scripts -->
-        <script src="js/nav.js"></script>
+    <script src="js/nav.js"></script>
+    <script>
+      (function () {
+        const floatBtn = document.getElementById('servicios-float');
+        const serviciosSection = document.getElementById('servicios');
+        const galleryCta = serviciosSection.querySelector('.gallery-cta');
+
+        let inServicios = false;
+        let ctaVisible = false;
+
+        function sync() {
+          if (inServicios && !ctaVisible) {
+            floatBtn.classList.add('visible');
+          } else {
+            floatBtn.classList.remove('visible');
+          }
+        }
+
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.target === serviciosSection) inServicios = e.isIntersecting;
+            if (e.target === galleryCta)       ctaVisible  = e.isIntersecting;
+          });
+          sync();
+        }, { threshold: 0.1 });
+
+        observer.observe(serviciosSection);
+        observer.observe(galleryCta);
+      })();
+    </script>
 
   </body>
 </html>

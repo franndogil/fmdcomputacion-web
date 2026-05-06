@@ -1,3 +1,62 @@
+/* ── Filtros de categoría ── */
+.filtros-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.filtro-btn {
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.filtro-btn:hover {
+  background: rgba(6,235,212,0.1);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.filtro-btn.active {
+  background: var(--accent);
+  color: #0a0a0a;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Grupos por categoría ── */
+.categoria-section {
+  margin-bottom: 3rem;
+}
+
+.categoria-titulo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(6,235,212,0.15);
+}
+
+.no-results,
+.servicios-loading {
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 0.95rem;
+}
+
     .service-card img {
       display: block;
       width: 100%; max-height: 370px;
@@ -10,7 +69,24 @@
     }
     .service-toggle { display: none; }
 
+    /* flecha decorativa visible solo en mobile via ::after */
+
     @media (max-width: 640px) {
+      .filtros-bar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+        gap: 0.4rem;
+      }
+      .filtros-bar::-webkit-scrollbar { display: none; }
+      .filtro-btn {
+        padding: 0.65rem 1.3rem;
+        font-size: 0.88rem;
+        flex-shrink: 0;
+      }
+
       .services-grid {
         grid-template-columns: 1fr !important;
         gap: 0.75rem;
@@ -43,6 +119,21 @@
         align-items: center;
         gap: 0.5rem;
         flex-wrap: wrap;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+      }
+      .service-summary::after {
+        content: '▾';
+        color: var(--accent);
+        font-size: 1.2rem;
+        line-height: 1;
+        margin-left: auto;
+        flex-shrink: 0;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .service-card.open .service-summary::after {
+        transform: rotate(180deg);
       }
       .service-summary h3 {
         flex: 1 1 100%;
@@ -53,25 +144,6 @@
         font-size: 0.88rem;
         margin-top: 0.15rem;
         flex: 1;
-      }
-      .service-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(6,235,212,0.1);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        color: var(--accent);
-        cursor: pointer;
-        width: 30px;
-        height: 30px;
-        flex-shrink: 0;
-        font-size: 1.1rem;
-        transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-                    background 0.3s ease;
-      }
-      .service-toggle:active {
-        background: rgba(6,235,212,0.2);
       }
 
       /* ── Detalles: siempre presentes, animados con max-height ── */
@@ -107,9 +179,6 @@
         max-height: 180px;
         margin-bottom: 0;
         border-radius: 10px;
-      }
-      .service-card.open .service-toggle {
-        transform: rotate(180deg);
       }
       .service-card.open .service-details {
         max-height: 600px;

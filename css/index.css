@@ -122,7 +122,10 @@
       border: 1px solid var(--border);
       border-radius: 16px; padding: 2rem;
       transition: border-color .25s, transform .25s, box-shadow .25s;
-      cursor: default;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     .service-card:hover {
       border-color: var(--accent);
@@ -195,6 +198,64 @@
     }
     .why-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
     .why-item p { font-size: .85rem; color: rgba(255,255,255,0.6); }
+
+        /* ── FAQS ── */
+    .faqs{
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 850px;
+      margin: 4rem auto 0;
+      padding: 0 1.5rem;
+    }
+
+    .faqs .footer-faq-cta{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.8rem;
+      text-align: center;
+      transition:
+        border-color .25s,
+        transform .25s,
+        box-shadow .25s;
+    }
+
+    .faqs .footer-faq-cta:hover{
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(6,235,212,0.10);
+    }
+
+    .faqs .footer-faq-cta p{
+      font-size: 1rem;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 1rem;
+    }
+
+    .faqs .footer-faq-cta a{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .9rem 1.4rem;
+      border-radius: 12px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition:
+        background .25s,
+        color .25s,
+        transform .25s,
+        box-shadow .25s;
+    }
+
+    .faqs .footer-faq-cta a:hover{
+      background: var(--accent);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(6,235,212,0.18);
+    }
 
     /* ── CONTACTO ── */
     #contacto { background: var(--bg); }
@@ -286,4 +347,43 @@
       .service-icon { width: 40px; height: 40px; font-size: 1.2rem; margin-bottom: 0.75rem; }
       .service-card h3 { font-size: 0.9rem; }
       .service-card p { font-size: 0.8rem; }
+    }
+
+    /* ── Botón flotante "Ver servicios" ── */
+    .servicios-float {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 199;
+      background: var(--card);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 0.7rem 1.4rem;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      white-space: nowrap;
+    }
+    .servicios-float.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .servicios-float:hover {
+      background: rgba(6,235,212,0.12);
+      border-color: var(--accent);
+    }
+    @media (max-width: 640px) {
+      .servicios-float {
+        bottom: 2rem;
+        left: 2rem;
+        font-size: 0.85rem;
+        padding: 0.65rem 1.2rem;
+      }
     }

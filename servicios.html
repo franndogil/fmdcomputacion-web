@@ -48,7 +48,8 @@
       <h1 class="section-title">Nuestros <em>servicios</em></h1>
       <p class="section-desc">Soluciones completas para tu computadora. Precios claros, sin sorpresas.</p>
     </div>
-    <div class="services-grid" id="servicios-container"></div>
+    <div id="filtros-bar" class="filtros-bar"></div>
+    <div id="servicios-container"></div>
   </div>
 </section>
 
@@ -95,78 +96,117 @@
     "sb_publishable_t_E6Cc-y4LadGdsS4KPUxQ_qcbnGbRP"
   );
 
+  let allServices = [];
+
   async function cargarServicios() {
+    document.getElementById('servicios-container').innerHTML = '<p class="servicios-loading">Cargando servicios...</p>';
     const { data, error } = await client.from("servicios").select("*");
     if (error) { console.error(error); return; }
 
-    data.sort((a, b) => {
-    const categoriaCompare = a.categoria.localeCompare(b.categoria);
-    if (categoriaCompare !== 0) return categoriaCompare;
-      return a.titulo.localeCompare(b.titulo);
+    allServices = data.filter(s => s.activo === true);
+
+    const categorias = [...new Set(allServices.map(s => s.categoria))]
+      .sort((a, b) => a.localeCompare(b, 'es'));
+
+    renderFiltros(categorias);
+
+    const urlCat = new URLSearchParams(window.location.search).get('cat');
+    if (urlCat) {
+      const norm = str => str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+      const match = urlCat === 'az' ? 'az' : categorias.find(c => norm(c) === norm(urlCat));
+      if (match) { aplicarFiltro(match); return; }
+    }
+    aplicarFiltro('az');
+  }
+
+  function renderFiltros(categorias) {
+    const bar = document.getElementById('filtros-bar');
+    bar.innerHTML =
+      `<button class="filtro-btn" data-cat="todos">Todos</button>` +
+      categorias.map(c => `<button class="filtro-btn" data-cat="${c}">${c}</button>`).join('') +
+      `<button class="filtro-btn active" data-cat="az">A – Z</button>`;
+
+    bar.querySelectorAll('.filtro-btn').forEach(btn => {
+      btn.addEventListener('click', () => aplicarFiltro(btn.dataset.cat));
     });
-    
-    renderServicios(data);
   }
 
-  function renderServicios(servicios) {
-  const container = document.getElementById("servicios-container");
+  function aplicarFiltro(cat) {
+    document.querySelectorAll('.filtro-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.cat === cat)
+    );
+    const container = document.getElementById('servicios-container');
 
-  const activos = servicios.filter(s => s.activo === true);
-
-  if (activos.length === 0) {
-    container.innerHTML = "<p>No hay servicios disponibles</p>";
-    return;
+    if (cat === 'todos') {
+      const sorted = [...allServices].sort((a, b) =>
+        a.categoria.localeCompare(b.categoria, 'es') || a.titulo.localeCompare(b.titulo, 'es')
+      );
+      renderAgrupado(sorted, container);
+    } else if (cat === 'az') {
+      const sorted = [...allServices].sort((a, b) => a.titulo.localeCompare(b.titulo, 'es'));
+      renderGrid(sorted, container);
+    } else {
+      const filtered = allServices
+        .filter(s => s.categoria === cat)
+        .sort((a, b) => a.titulo.localeCompare(b.titulo, 'es'));
+      renderGrid(filtered, container);
+    }
   }
 
-  // Ordenar por categoría + título (interno, no visible)
-  activos.sort((a, b) =>
-    a.categoria.localeCompare(b.categoria) ||
-    a.titulo.localeCompare(b.titulo)
-  );
+  function renderAgrupado(servicios, container) {
+    const grupos = {};
+    servicios.forEach(s => {
+      if (!grupos[s.categoria]) grupos[s.categoria] = [];
+      grupos[s.categoria].push(s);
+    });
+    container.innerHTML = Object.entries(grupos).map(([cat, items]) => `
+      <div class="categoria-section">
+        <h2 class="categoria-titulo">${cat}</h2>
+        <div class="services-grid">${items.map(cardHTML).join('')}</div>
+      </div>
+    `).join('');
+  }
 
-  container.innerHTML = `
-    <div class="services-grid">
-      ${activos.map(s => {
-        const msg = encodeURIComponent(s.mensaje || "");
+  function renderGrid(servicios, container) {
+    if (servicios.length === 0) {
+      container.innerHTML = '<p class="no-results">No hay servicios en esta categoría.</p>';
+      return;
+    }
+    container.innerHTML = `<div class="services-grid">${servicios.map(cardHTML).join('')}</div>`;
+  }
 
-        let precioHTML = "";
-
-        const precio = Number(s.precio);
-        const requierePresupuesto =
-          s.requiere_presupuesto === true || s.requiere_presupuesto === "true";
-
-        if (requierePresupuesto) {
-          precioHTML = `<span class="service-price">Presupuesto sin cargo</span>`;
-        } else if (!isNaN(precio) && precio === 0) {
-          precioHTML = `<span class="service-price">Gratis</span>`;
-        } else if (!isNaN(precio) && precio > 0) {
-          precioHTML = `<span class="service-price">Desde: $${precio.toLocaleString("es-AR")}</span>`;
-        }
-
-        return `
-          <div class="service-card">
-            <img src="${s.imagen || ""}" alt="${s.titulo}" />
-            <div class="service-body">
-              <div class="service-summary">
-                <h3>${s.titulo}</h3>
-                ${precioHTML}
-                <button class="service-toggle" onclick="this.closest('.service-card').classList.toggle('open')" aria-label="Ver detalle">▾</button>
-              </div>
-              <div class="service-details">
-                <p>${s.descripcion || ""}</p>
-                <a href="https://wa.me/5491128352176?text=${msg}" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem">
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </div>
+  function cardHTML(s) {
+    const msg = encodeURIComponent(s.mensaje || '');
+    const precio = Number(s.precio);
+    const requierePresupuesto = s.requiere_presupuesto === true || s.requiere_presupuesto === 'true';
+    let precioHTML = '';
+    if (requierePresupuesto) {
+      precioHTML = `<span class="service-price">Presupuesto sin cargo</span>`;
+    } else if (!isNaN(precio) && precio === 0) {
+      precioHTML = `<span class="service-price">Gratis</span>`;
+    } else if (!isNaN(precio) && precio > 0) {
+      precioHTML = `<span class="service-price">Desde: $${precio.toLocaleString('es-AR')}</span>`;
+    }
+    return `
+      <div class="service-card">
+        <img src="${s.imagen || ''}" alt="${s.titulo}" />
+        <div class="service-body">
+          <div class="service-summary" onclick="this.closest('.service-card').classList.toggle('open')">
+            <h3>${s.titulo}</h3>
+            ${precioHTML}
           </div>
-        `;
-      }).join("")}
-    </div>
-  `;
-}
+          <div class="service-details">
+            <p>${s.descripcion || ''}</p>
+            <a href="https://wa.me/5491128352176?text=${msg}" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem">
+              Consultar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
 
-cargarServicios();
+  cargarServicios();
 </script>
 
 </body>
