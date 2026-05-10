@@ -27,9 +27,8 @@
       <div class="nav-bar">
         <a href="#" class="nav-logo"><img src="/assets/navIcon.png" alt=""><span></span</a>
         <ul class="nav-links">
-          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="/servicios.html">Servicios</a></li>
           <li><a href="/proyectos.html">Proyectos</a></li>
-          <li><a href="#galeria">Trabajos</a></li>
           <li><a href="#por-que">Nosotros</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -39,9 +38,8 @@
         </button>
       </div>
       <div class="nav-mobile-menu">
-        <a href="#servicios" onclick="closeMenu()">Servicios</a>
+        <a href="/servicios.html" onclick="closeMenu()">Servicios</a>
         <a href="/proyectos.html" onclick="closeMenu()">Proyectos</a>
-        <a href="#galeria" onclick="closeMenu()">Trabajos</a>
         <a href="#por-que" onclick="closeMenu()">Nosotros</a>
         <a href="#contacto" onclick="closeMenu()">Contacto</a>
         <a href="https://wa.me/5491128352176" target="_blank" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>
@@ -154,52 +152,73 @@
       </div>
     </section>
 
-    <!-- GALERÍA -->
+    <!-- PROYECTOS SLIDER -->
     <section id="galeria">
       <div class="container">
         <div class="section-head">
-          <div class="section-label">Nuestros trabajos</div>
-          <h2 class="section-title">Galería <em>real</em></h2>
-          <p class="section-desc">Fotos reales de equipos que pasaron por nuestras manos. Sin filtros, sin stock photos.</p>
+          <div class="section-label">NUESTROS PROYECTOS</div>
+          <h2 class="section-title">Proyectos <em>realizados</em></h2>
+          <p class="section-desc">Algunos de los trabajos, instalaciones y soluciones tecnológicas que realizamos.</p>
         </div>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="assets/post1.jpg" alt="Trabajo FMD Computación" />
-            <div class="overlay"><div class="overlay-icon"><img src="/assets/icons/lupa_white.png" alt=""></div></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/post2.jpg" alt="Trabajo FMD Computación" />
-            <div class="overlay"><div class="overlay-icon"><img src="/assets/icons/lupa_white.png" alt=""></div></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/post3.jpg" alt="Trabajo FMD Computación" />
-            <div class="overlay"><div class="overlay-icon"><img src="/assets/icons/lupa_white.png" alt=""></div></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/post4.jpg" alt="Trabajo FMD Computación" />
-            <div class="overlay"><div class="overlay-icon"><img src="/assets/icons/lupa_white.png" alt=""></div></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/post5.jpg" alt="Trabajo FMD Computación" />
-            <div class="overlay"><div class="overlay-icon"><img src="/assets/icons/lupa_white.png" alt=""></div></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/post6.jpg" alt="Trabajo FMD Computación" />
-            <div class="overlay"><div class="overlay-icon"><img src="/assets/icons/lupa_white.png" alt=""></div></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/post7.jpg" alt="Trabajo FMD Computación" />
-            <div class="overlay"><div class="overlay-icon"><img src="/assets/icons/lupa_white.png" alt=""></div></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/post8.jpg" alt="Trabajo FMD Computación" />
-            <div class="overlay"><div class="overlay-icon"><img src="/assets/icons/lupa_white.png" alt=""></div></div>
-          </div>
-        </div>
-        <div class="gallery-cta">
-          <a href="https://www.instagram.com/fmdcomputacion/" target="_blank" class="btn-secondary">
-            Ver más en Instagram →
+      </div>
+
+      <div class="projects-slider-outer">
+        <div class="projects-slider" id="projects-slider" role="list">
+
+          <a class="project-card" href="/proyectos/red-y-sistema-de-comandas-en-Dickinson/red-y-sistema-de-comandas-en-Dickinson-Restobar.html" role="listitem">
+            <div class="pc-img">
+              <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/1.jpg" alt="Red y sistema de comandas Dickinson Restobar" loading="lazy">
+              <span class="pc-badge">Redes</span>
+            </div>
+            <div class="pc-info">
+              <h3>Red y Sistema de Comandas en Dickinson Restobar</h3>
+              <p>Red cableada estructurada y sistema de comandas para Dickinson Restobar.</p>
+              <span class="pc-arrow">Ver proyecto →</span>
+            </div>
           </a>
+
+          <a class="project-card" href="/proyectos/camaras-de-seguridad-en-Dickinson/camaras-de-seguridad-en-Dickinson-Restobar.html" role="listitem">
+            <div class="pc-img">
+              <img src="/proyectos/camaras-de-seguridad-en-Dickinson/img/3.JPG" alt="Cámaras de seguridad en Dickinson" loading="lazy">
+              <span class="pc-badge">Cámaras</span>
+            </div>
+            <div class="pc-info">
+              <h3>Cámaras de seguridad en Dickinson Restobar</h3>
+              <p>Sistema de vigilancia con cámaras HD e instalación cableada completa en local gastronómico.</p>
+              <span class="pc-arrow">Ver proyecto →</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55.html" role="listitem">
+            <div class="pc-img">
+              <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/3.jpg" alt="Ampliacion del Sistema de Comandas en Cosa di Giovanni (Mercado55)" loading="lazy">
+              <span class="pc-badge">Redes</span>
+            </div>
+            <div class="pc-info">
+              <h3>Ampliacion del Sistema de Comandas en Cosa di Giovanni (Mercado55)</h3>
+              <p>Red cableada estructurada y sistema de comandas para Cosa di Giovanni (Mercado55).</p>
+              <span class="pc-arrow">Ver proyecto →</span>
+            </div>
+          </a>
+
+        </div>
+
+        <button class="slider-btn slider-btn-prev" id="slider-prev" aria-label="Proyecto anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <button class="slider-btn slider-btn-next" id="slider-next" aria-label="Proyecto siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="container">
+        <div class="slider-dots" id="slider-dots"></div>
+        <div class="gallery-cta">
+          <a href="/proyectos.html" class="btn-secondary">Ver todos los proyectos →</a>
         </div>
       </div>
     </section>
@@ -357,7 +376,6 @@
             <div class="footer-links">
             <a href="/servicios.html">Servicios</a>
             <a href="/proyectos.html">Proyectos</a>
-            <a href="/index.html#galeria">Trabajos</a>
             <a href="/faqs.html">FAQs</a>
             <a href="/index.html#contacto">Contacto</a>
             </div>
@@ -386,6 +404,77 @@
 
     <!-- Scripts -->
     <script src="js/nav.js"></script>
+    <script>
+      (function () {
+        const slider = document.getElementById('projects-slider');
+        const dotsContainer = document.getElementById('slider-dots');
+        const prevBtn = document.getElementById('slider-prev');
+        const nextBtn = document.getElementById('slider-next');
+        if (!slider) return;
+        const cards = Array.from(slider.querySelectorAll('.project-card'));
+
+        cards.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Proyecto ' + (i + 1));
+          dot.addEventListener('click', () => scrollToCard(i));
+          dotsContainer.appendChild(dot);
+        });
+        const dots = Array.from(dotsContainer.querySelectorAll('.slider-dot'));
+
+        function getActiveIndex() {
+          const origin = slider.getBoundingClientRect().left;
+          let closest = 0, minDist = Infinity;
+          cards.forEach((card, i) => {
+            const dist = Math.abs(card.getBoundingClientRect().left - origin);
+            if (dist < minDist) { minDist = dist; closest = i; }
+          });
+          return closest;
+        }
+
+        function updateDots(idx) {
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+
+        function scrollToCard(idx) {
+          const card = cards[idx];
+          slider.scrollTo({ left: card.offsetLeft - slider.offsetLeft, behavior: 'smooth' });
+        }
+
+        slider.addEventListener('scroll', () => updateDots(getActiveIndex()), { passive: true });
+
+        prevBtn && prevBtn.addEventListener('click', () => {
+          const idx = getActiveIndex();
+          if (idx > 0) scrollToCard(idx - 1);
+        });
+        nextBtn && nextBtn.addEventListener('click', () => {
+          const idx = getActiveIndex();
+          if (idx < cards.length - 1) scrollToCard(idx + 1);
+        });
+
+        let isDown = false, startX = 0, scrollStart = 0, didDrag = false;
+        slider.addEventListener('mousedown', e => {
+          isDown = true; didDrag = false;
+          startX = e.pageX; scrollStart = slider.scrollLeft;
+          slider.classList.add('is-dragging');
+        });
+        document.addEventListener('mouseup', () => {
+          if (!isDown) return;
+          isDown = false;
+          slider.classList.remove('is-dragging');
+        });
+        document.addEventListener('mousemove', e => {
+          if (!isDown) return;
+          e.preventDefault();
+          const dx = e.pageX - startX;
+          if (Math.abs(dx) > 4) didDrag = true;
+          slider.scrollLeft = scrollStart - dx;
+        });
+        slider.addEventListener('click', e => {
+          if (didDrag) e.preventDefault();
+        }, true);
+      })();
+    </script>
     <script>
       (function () {
         const floatBtn = document.getElementById('servicios-float');

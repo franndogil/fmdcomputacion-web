@@ -78,6 +78,7 @@
     justify-content: center;
     opacity: 0;
     transition: opacity .3s;
+    text-decoration: none;
 }
 
 .project-card:hover .project-thumb-overlay {
