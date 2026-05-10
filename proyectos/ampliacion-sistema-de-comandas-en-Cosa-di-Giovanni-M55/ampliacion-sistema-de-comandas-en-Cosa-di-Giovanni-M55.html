@@ -6,7 +6,7 @@
 
     <!-- ══ EDITAR: título de la pestaña ══ -->
     <title>Ampliacion del Sistema de Comandas en Cosa di Giovanni (Mercado55) | FMDCOMPUTACION</title>
-    <meta name="description" content="[Descripción breve del proyecto para SEO — 1 oración, máx. 155 caracteres]" />
+    <meta name="description" content="Ampliación del sistema de comandas en Cosa Di Giovanni dentro de Mercado 55 La Plata para sumar nuevos puestos de venta." />
     <meta name="robots" content="index, follow" />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -77,19 +77,16 @@
                  Si hay una sola imagen, quitá todas las demás. ══ -->
 
             <div class="carousel-slide">
-                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/1.jpg" alt="[Descripción imagen 1]" />
+                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/1.jpg" alt="Switch de red utilizado para conectar comanderas y equipos del sistema interno del local gastronómico." />
             </div>
             <div class="carousel-slide">
-                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/2.jpg" alt="[Descripción imagen 2]" />
+                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/2.jpg" alt="Switch de red utilizado para conectar comanderas y equipos del sistema interno del local gastronómico." />
             </div>
             <div class="carousel-slide">
-                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/3.jpg" alt="[Descripción imagen 3]" />
+                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/3.jpg" alt="Switch de red utilizado para conectar comanderas y equipos del sistema interno del local gastronómico." />
             </div>
             <div class="carousel-slide">
-                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/4.jpg" alt="[Descripción imagen 3]" />
-            </div>
-            <div class="carousel-slide">
-                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/5.jpg" alt="[Descripción imagen 3]" />
+                <img src="/proyectos/ampliacion-sistema-de-comandas-en-Cosa-di-Giovanni-M55/img/4.jpg" alt="Punto de venta instalado con sistema de caja, monitor y periféricos integrados para la operación gastronómica." />
             </div>
 
         </div>
@@ -171,6 +168,11 @@
                     <div class="detail-label">Categoría</div>
                     <!-- ej: Armado · Redes · Reparación · Seguridad · Web -->
                     <div class="detail-value">Redes | Gastronomía</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value">Cosa di Giovanni</div>
                 </div>
 
                 <div class="detail-item">
@@ -263,6 +265,7 @@
 
 <!-- SCRIPTS-->
 <script src="/js/nav.js"></script>
+<script src="/js/lightbox.js"></script>
 
 <script>
 (function () {
@@ -296,11 +299,13 @@
     /* ── Navegación ── */
     function goTo(index) {
         current = (index + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        track.style.transform = 'translateX(-' + slides[current].offsetLeft + 'px)';
         dotsWrap.querySelectorAll('.carousel-dot').forEach(function (d, i) {
             d.classList.toggle('active', i === current);
         });
     }
+
+    window.addEventListener('resize', function () { goTo(current); });
 
     btnPrev.addEventListener('click', function () { goTo(current - 1); resetAuto(); });
     btnNext.addEventListener('click', function () { goTo(current + 1); resetAuto(); });
@@ -326,7 +331,7 @@
 
     /* ── Auto-play ── */
     function startAuto() {
-        autoTimer = setInterval(function () { goTo(current + 1); }, 4500);
+        autoTimer = setInterval(function () { goTo(current + 1); }, 6000);
     }
     function resetAuto() {
         clearInterval(autoTimer);

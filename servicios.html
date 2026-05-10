@@ -189,16 +189,16 @@
             precioHTML = `<span class="service-price">Desde: $${precio.toLocaleString('es-AR')}</span>`;
           }
           return `
-            <div class="service-card">
+            <div class="service-card" onclick="this.classList.toggle('open')">
               <img src="${s.imagen || ''}" alt="${s.titulo}" />
               <div class="service-body">
-                <div class="service-summary" onclick="this.closest('.service-card').classList.toggle('open')">
+                <div class="service-summary">
                   <h3>${s.titulo}</h3>
                   ${precioHTML}
                 </div>
                 <div class="service-details">
                   <p>${s.descripcion || ''}</p>
-                  <a href="https://wa.me/5491128352176?text=${msg}" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem">
+                  <a href="https://wa.me/5491128352176?text=${msg}" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
                     Consultar por WhatsApp
                   </a>
                 </div>
