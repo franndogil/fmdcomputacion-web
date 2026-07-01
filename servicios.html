@@ -48,8 +48,231 @@
             <p class="section-desc">Soluciones tecnológicas para hogares, comercios y gastronomía.
                 Atención rápida, precios claros y soporte confiable.</p>
           </div>
-          <div id="filtros-bar" class="filtros-bar"></div>
-          <div id="servicios-container"></div>
+          <div id="filtros-bar" class="filtros-bar">
+            <button class="filtro-btn" data-cat="todos">Todos</button>
+            <button class="filtro-btn" data-cat="armado">armado</button>
+            <button class="filtro-btn" data-cat="hardware">hardware</button>
+            <button class="filtro-btn" data-cat="limpieza">limpieza</button>
+            <button class="filtro-btn" data-cat="redes">redes</button>
+            <button class="filtro-btn" data-cat="reparacion">reparacion</button>
+            <button class="filtro-btn" data-cat="software">software</button>
+            <button class="filtro-btn" data-cat="web">web</button>
+            <button class="filtro-btn active" data-cat="az">A – Z</button>
+          </div>
+          <div id="servicios-container">
+            <div class="services-grid">
+        <div class="service-card" data-cat="hardware" data-titulo="Actualización y mejora de hardware" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1779989835/ACTUALIZACI%C3%93N_fw9nhy.png" alt="Actualización y mejora de hardware" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Actualización y mejora de hardware</h3>
+                    <span class="service-price">Desde: $40.000</span>
+                </div>
+                <div class="service-details">
+                    <p>Actualizamos y mejoramos el rendimiento de tu computadora mediante la instalación o reemplazo de componentes como memoria RAM, discos SSD, fuente o placa de video. Incluye revisión básica del equipo y verificación de funcionamiento para asegurar un resultado óptimo.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20actualizaci%C3%B3n%20y%20mejora%20de%20hardware.%20Quisiera%20instalar%20o%20reemplazar%20componentes%20en%20mi%20computadora%20y%20saber%20el%20costo%20seg%C3%BAn%20mi%20equipo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="armado" data-titulo="Armado de Computadora" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1777505719/ARMADO_DE_COMPUTADORAS_fg040z.jpg" alt="Armado de Computadora" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Armado de Computadora</h3>
+                    <span class="service-price">Desde: $100.000</span>
+                </div>
+                <div class="service-details">
+                    <p>Armamos tu computadora desde cero según lo que necesites y tu presupuesto. Nos encargamos de elegir los componentes adecuados y dejar todo listo para que funcione perfecto desde el primer momento.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20armado%20de%20computadora%2C%20quiero%20armar%20una%20PC%20a%20medida." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="armado" data-titulo="Asesoramiento" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1777505719/ASESORAMIENTO_wmzqlo.jpg" alt="Asesoramiento" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Asesoramiento</h3>
+                    <span class="service-price">Gratis</span>
+                </div>
+                <div class="service-details">
+                    <p>Te ayudamos a elegir la mejor opción según lo que realmente necesitás. Ya sea para comprar una computadora, mejorar la que tenés o resolver alguna duda puntual, te orientamos de forma clara y sin vueltas para que tomes una buena decisión.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20asesoramiento%20para%20una%20computadora." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="reparacion" data-titulo="Diagnóstico de PC" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1777505720/REVISION_DE_COMPUTADORAS_q5e3ds.jpg" alt="Diagnóstico de PC" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Diagnóstico de PC</h3>
+                    <span class="service-price">Gratis</span>
+                </div>
+                <div class="service-details">
+                    <p>Revisamos tu computadora a fondo para detectar fallas de hardware o software que estén afectando su rendimiento. Te damos un diagnóstico claro y te explicamos la mejor solución, sin vueltas.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20revisi%C3%B3n%20de%20computadora%2C%20quiero%20saber%20qu%C3%A9%20problema%20tiene%20mi%20PC." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="web" data-titulo="Diseño de Página Web Profesional" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1779989835/DISE%C3%91O_WEB_jxsw4r.png" alt="Diseño de Página Web Profesional" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Diseño de Página Web Profesional</h3>
+                    <span class="service-price">Presupuesto sin cargo</span>
+                </div>
+                <div class="service-details">
+                    <p>Creamos páginas web modernas, rápidas y adaptadas a tu negocio para que puedas mostrar tus servicios, recibir consultas y generar más clientes.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20dise%C3%B1o%20de%20p%C3%A1ginas%20web.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%2C%20qu%C3%A9%20incluye%20y%20cu%C3%A1l%20ser%C3%ADa%20el%20costo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="software" data-titulo="Formateo + BackUp + Instalación de Sistema Operativo" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1777505720/FORMATEO_BACKUP_INSTALACION_DE_SO_okha2g.jpg" alt="Formateo + BackUp + Instalación de Sistema Operativo" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Formateo + BackUp + Instalación de Sistema Operativo</h3>
+                    <span class="service-price">Desde: $85.000</span>
+                </div>
+                <div class="service-details">
+                    <p>Hacemos una limpieza completa del equipo, guardamos tus archivos importantes y reinstalamos el sistema desde cero para que la computadora vuelva a funcionar rápida y sin errores.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20formateo%20con%20backup%20e%20instalaci%C3%B3n%20de%20sistema%2C%20quiero%20dejar%20la%20PC%20como%20nueva%20sin%20perder%20mis%20archivos." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="software" data-titulo="Inicialización de equipo nuevo" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1777505720/INICIALIZACI%C3%93N_DE_EQUIPO_NUEVO_nr0f3d.jpg" alt="Inicialización de equipo nuevo" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Inicialización de equipo nuevo</h3>
+                    <span class="service-price">Desde: $60.000</span>
+                </div>
+                <div class="service-details">
+                    <p>Dejamos tu computadora nueva lista para usar desde el primer momento. Configuramos el sistema, instalamos lo necesario y ajustamos todo para que funcione rápido y sin complicaciones.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20inicializaci%C3%B3n%20de%20equipo%20nuevo%2C%20quiero%20dejar%20la%20PC%20lista%20para%20usar." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="redes" data-titulo="Instalación de cámaras de seguridad" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1779989835/CAMARAS_cxdetn.png" alt="Instalación de cámaras de seguridad" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Instalación de cámaras de seguridad</h3>
+                    <span class="service-price">Presupuesto sin cargo</span>
+                </div>
+                <div class="service-details">
+                    <p>Instalamos cámaras de seguridad cableadas o IP, dejando todo configurado para que puedas monitorear tu hogar o negocio desde el celular de forma simple y segura.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20la%20instalaci%C3%B3n%20de%20c%C3%A1maras%20de%20seguridad.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%20y%20el%20costo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="redes" data-titulo="Instalación de red cableada" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1779989835/RED_CABLEADA_r9mzvs.png" alt="Instalación de red cableada" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Instalación de red cableada</h3>
+                    <span class="service-price">Presupuesto sin cargo</span>
+                </div>
+                <div class="service-details">
+                    <p>Realizamos instalación de red por cable de forma prolija y segura, incluyendo tendido de cables, armado de conectores RJ45 y organización para una conexión estable y de alta velocidad.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20la%20instalaci%C3%B3n%20de%20red%20cableada.%20Necesito%20armar%20o%20mejorar%20la%20conexi%C3%B3n%20por%20cable%20en%20mi%20casa%20o%20negocio%20y%20quisiera%20saber%20el%20costo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="limpieza" data-titulo="Limpieza de Hardware" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1777505157/LIMPIEZA_DE_HARDWARE_x1fvqc.jpg" alt="Limpieza de Hardware" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Limpieza de Hardware</h3>
+                    <span class="service-price">Desde: $40.000</span>
+                </div>
+                <div class="service-details">
+                    <p>Realizamos una limpieza interna completa del equipo, removiendo polvo y suciedad que afectan el rendimiento y la temperatura. Esto ayuda a evitar fallas, ruidos y sobrecalentamiento, prolongando la vida útil de la computadora y manteniéndola funcionando de forma estable.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20limpieza%20de%20hardware%2C%20est%C3%A1%20levantando%20temperatura." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="limpieza" data-titulo="Limpieza de Hardware + Reemplazo de pasta térmica" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1777505720/LIMPIEZA_DE_HARDARE_REEMPLAZO_DE_PASTA_T%C3%89RMICA_tbrwst.jpg" alt="Limpieza de Hardware + Reemplazo de pasta térmica" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Limpieza de Hardware + Reemplazo de pasta térmica</h3>
+                    <span class="service-price">Desde: $60.000</span>
+                </div>
+                <div class="service-details">
+                    <p>Hacemos una limpieza interna completa y cambiamos la pasta térmica del procesador para mejorar la refrigeración. Ideal si la computadora levanta temperatura, hace ruido o perdió rendimiento con el uso.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20limpieza%20de%20hardware%20con%20cambio%20de%20pasta%20t%C3%A9rmica%2C%20mi%20PC%20est%C3%A1%20levantando%20temperatura." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="software" data-titulo="Limpieza de Software y Optimización" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1777505719/LIMPIEZA_DE_SOFTWARE_Y_OPTIMIZACION_ajfs5d.jpg" alt="Limpieza de Software y Optimización" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Limpieza de Software y Optimización</h3>
+                    <span class="service-price">Desde: $30.000</span>
+                </div>
+                <div class="service-details">
+                    <p>Hacemos una puesta a punto completa de tu equipo: eliminamos programas innecesarios, virus y archivos que lo ralentizan, y ajustamos el sistema para que vuelva a funcionar ágil y sin trabas. Ideal si la computadora está lenta, tarda en arrancar o se cuelga seguido.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20limpieza%20de%20software%20y%20optimizaci%C3%B3n%2C%20mi%20PC%20est%C3%A1%20lenta." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="software" data-titulo="Migración de sistema a SSD (sin perder archivos)" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1779989835/MIGRACI%C3%93N_uvvxzz.png" alt="Migración de sistema a SSD (sin perder archivos)" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Migración de sistema a SSD (sin perder archivos)</h3>
+                    <span class="service-price">Desde: $85.000</span>
+                </div>
+                <div class="service-details">
+                    <p>Pasamos tu sistema al nuevo SSD sin perder archivos ni configuraciones, mejorando notablemente la velocidad de tu computadora.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20migraci%C3%B3n%20a%20SSD.%20Quisiera%20pasar%20mi%20sistema%20al%20nuevo%20disco%20sin%20perder%20archivos%20y%20saber%20el%20costo%20seg%C3%BAn%20mi%20equipo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="service-card" data-cat="redes" data-titulo="Sistema de Comanderas para Gastronomía" onclick="this.classList.toggle('open')">
+            <img src="https://res.cloudinary.com/dcj7qqgxf/image/upload/v1779989835/COMANDERAS_umevog.png" alt="Sistema de Comanderas para Gastronomía" />
+            <div class="service-body">
+                <div class="service-summary">
+                    <h3>Sistema de Comanderas para Gastronomía</h3>
+                    <span class="service-price">Presupuesto sin cargo</span>
+                </div>
+                <div class="service-details">
+                    <p>Instalamos y configuramos sistemas de comandera para restaurantes, bares y negocios gastronómicos. Realizamos la conexión de impresoras, red, tablets y software para optimizar la toma de pedidos y mejorar la organización del local.</p>
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20sistema%20de%20comanderas%20para%20gastronom%C3%ADa.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%2C%20qu%C3%A9%20incluye%20y%20cu%C3%A1l%20ser%C3%ADa%20el%20costo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -88,127 +311,7 @@
 
       <!-- Scripts -->
       <script src="js/nav.js"></script>
-
-      <!-- SUPABASE -->
-      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-      <script>
-        const client = window.supabase.createClient(
-          "https://eitdlwqfyoxthrumjmie.supabase.co",
-          "sb_publishable_t_E6Cc-y4LadGdsS4KPUxQ_qcbnGbRP"
-        );
-
-        let allServices = [];
-
-        async function cargarServicios() {
-          document.getElementById('servicios-container').innerHTML = '<p class="servicios-loading">Cargando servicios...</p>';
-          const { data, error } = await client.from("servicios").select("*");
-          if (error) { console.error(error); return; }
-
-          allServices = data.filter(s => s.activo === true);
-
-          const categorias = [...new Set(allServices.map(s => s.categoria))]
-            .sort((a, b) => a.localeCompare(b, 'es'));
-
-          renderFiltros(categorias);
-
-          const urlCat = new URLSearchParams(window.location.search).get('cat');
-          if (urlCat) {
-            const norm = str => str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-            const match = urlCat === 'az' ? 'az' : categorias.find(c => norm(c) === norm(urlCat));
-            if (match) { aplicarFiltro(match); return; }
-          }
-          aplicarFiltro('az');
-        }
-
-        function renderFiltros(categorias) {
-          const bar = document.getElementById('filtros-bar');
-          bar.innerHTML =
-            `<button class="filtro-btn" data-cat="todos">Todos</button>` +
-            categorias.map(c => `<button class="filtro-btn" data-cat="${c}">${c}</button>`).join('') +
-            `<button class="filtro-btn active" data-cat="az">A – Z</button>`;
-
-          bar.querySelectorAll('.filtro-btn').forEach(btn => {
-            btn.addEventListener('click', () => aplicarFiltro(btn.dataset.cat));
-          });
-        }
-
-        function aplicarFiltro(cat) {
-          document.querySelectorAll('.filtro-btn').forEach(b =>
-            b.classList.toggle('active', b.dataset.cat === cat)
-          );
-          const container = document.getElementById('servicios-container');
-
-          if (cat === 'todos') {
-            const sorted = [...allServices].sort((a, b) =>
-              a.categoria.localeCompare(b.categoria, 'es') || a.titulo.localeCompare(b.titulo, 'es')
-            );
-            renderAgrupado(sorted, container);
-          } else if (cat === 'az') {
-            const sorted = [...allServices].sort((a, b) => a.titulo.localeCompare(b.titulo, 'es'));
-            renderGrid(sorted, container);
-          } else {
-            const filtered = allServices
-              .filter(s => s.categoria === cat)
-              .sort((a, b) => a.titulo.localeCompare(b.titulo, 'es'));
-            renderGrid(filtered, container);
-          }
-        }
-
-        function renderAgrupado(servicios, container) {
-          const grupos = {};
-          servicios.forEach(s => {
-            if (!grupos[s.categoria]) grupos[s.categoria] = [];
-            grupos[s.categoria].push(s);
-          });
-          container.innerHTML = Object.entries(grupos).map(([cat, items]) => `
-            <div class="categoria-section">
-              <h2 class="categoria-titulo">${cat}</h2>
-              <div class="services-grid">${items.map(cardHTML).join('')}</div>
-            </div>
-          `).join('');
-        }
-
-        function renderGrid(servicios, container) {
-          if (servicios.length === 0) {
-            container.innerHTML = '<p class="no-results">No hay servicios en esta categoría.</p>';
-            return;
-          }
-          container.innerHTML = `<div class="services-grid">${servicios.map(cardHTML).join('')}</div>`;
-        }
-
-        function cardHTML(s) {
-          const msg = encodeURIComponent(s.mensaje || '');
-          const precio = Number(s.precio);
-          const requierePresupuesto = s.requiere_presupuesto === true || s.requiere_presupuesto === 'true';
-          let precioHTML = '';
-          if (requierePresupuesto) {
-            precioHTML = `<span class="service-price">Presupuesto sin cargo</span>`;
-          } else if (!isNaN(precio) && precio === 0) {
-            precioHTML = `<span class="service-price">Gratis</span>`;
-          } else if (!isNaN(precio) && precio > 0) {
-            precioHTML = `<span class="service-price">Desde: $${precio.toLocaleString('es-AR')}</span>`;
-          }
-          return `
-            <div class="service-card" onclick="this.classList.toggle('open')">
-              <img src="${s.imagen || ''}" alt="${s.titulo}" />
-              <div class="service-body">
-                <div class="service-summary">
-                  <h3>${s.titulo}</h3>
-                  ${precioHTML}
-                </div>
-                <div class="service-details">
-                  <p>${s.descripcion || ''}</p>
-                  <a href="https://wa.me/5491128352176?text=${msg}" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </div>
-            </div>
-          `;
-        }
-
-        cargarServicios();
-      </script>
+      <script src="js/servicios.js"></script>
 
   </body>
 </html>

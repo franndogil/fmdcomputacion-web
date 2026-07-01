@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard – FMD Admin</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/admin.css">
+    <style>body { visibility: hidden; }</style>
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="../assets/navIcon.png" alt="FMD Computación">
+                <span class="sidebar-brand-label">Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <span class="sidebar-section-label">General</span>
+                <a href="index.html" class="active">Dashboard</a>
+                <span class="sidebar-section-label">Contenido</span>
+                <a href="#">Servicios</a>
+                <a href="#">Proyectos</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user" id="user-email"></div>
+                <button class="btn-logout" id="btn-logout">Cerrar sesión</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <div class="page-label">Panel de control</div>
+                <h1>Dashboard</h1>
+                <p>Bienvenido al panel de administración de FMD Computación.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Servicios activos</div>
+                    <div class="stat-value" id="stat-servicios">–</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { supabase } from './js/supabase.js';
+
+        const { data: { session } } = await supabase.auth.getSession();
+
+        if (!session) {
+            window.location.replace('login.html');
+        } else {
+            document.body.style.visibility = 'visible';
+            document.getElementById('user-email').textContent = session.user.email;
+
+            const { count } = await supabase
+                .from('servicios')
+                .select('*', { count: 'exact', head: true })
+                .eq('activo', true);
+            document.getElementById('stat-servicios').textContent = count ?? 0;
+
+            document.getElementById('btn-logout').addEventListener('click', async () => {
+                await supabase.auth.signOut();
+                window.location.replace('login.html');
+            });
+        }
+    </script>
+</body>
+</html>
