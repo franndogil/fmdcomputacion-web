@@ -1,6 +1,8 @@
-# FMD Computación – Sitio web
+# FMDCOMPUTACION – Sitio web
 
-Sitio web institucional de FMD Computación, un servicio técnico de computación ubicado en Quilmes, Buenos Aires. Presenta los servicios ofrecidos, un catálogo filtrable, proyectos realizados y canales de contacto. Incluye un panel de administración separado con autenticación mediante Supabase.
+Sitio web de FMDCOMPUTACION, mi marca personal de servicio técnico de computación en Quilmes, Buenos Aires. Presenta los servicios que ofrezco, un catálogo filtrable, los proyectos que fui realizando y los canales de contacto. Incluye además un panel de administración propio con autenticación mediante Supabase.
+
+**Sitio en producción:** https://fmdcomputacion.com/
 
 ---
 
@@ -82,9 +84,9 @@ La configuración de Supabase (URL y clave pública) está definida como constan
 4. Desde cada servicio o desde los botones flotantes puede abrir WhatsApp con un mensaje ya redactado, o completar el formulario de contacto que abre el cliente de correo con destino `fmdcomputacion@gmail.com`.
 5. Puede explorar los proyectos en `proyectos.html` y abrir cada uno para ver su galería con lightbox.
 
-**Administrador:**
+**Administración (uso propio):**
 
-1. Ingresa a `admin/login.html` e introduce email y contraseña.
+1. Ingreso a `admin/login.html` con email y contraseña.
 2. `auth.js` llama a `supabase.auth.signInWithPassword`. Si es correcto, redirige a `admin/index.html`.
 3. `index.html` verifica la sesión con `getSession`; si existe, muestra el dashboard y el conteo de servicios activos consultando la tabla `servicios` con `activo = true`.
 4. El botón "Cerrar sesión" ejecuta `supabase.auth.signOut` y vuelve al login.
@@ -94,7 +96,7 @@ La configuración de Supabase (URL y clave pública) está definida como constan
 ## Instalación
 
 ### Requisitos
-- Un servidor de archivos estáticos (por ejemplo, la extensión Live Server de VS Code, `python -m http.server`, o `npx serve`). Se recomienda servir por HTTP en lugar de abrir los archivos con `file://`, porque el panel usa ES Modules.
+- Un servidor de archivos estáticos (por ejemplo, la extensión Live Server de VS Code, `python -m http.server`, o `npx serve`). Conviene servir por HTTP en lugar de abrir los archivos con `file://`, porque el panel usa ES Modules.
 - Para el panel: un proyecto de Supabase con Auth habilitado y una tabla `servicios`.
 
 ### Instalación
@@ -224,7 +226,7 @@ Formulario con `action="mailto:"` que abre el cliente de correo del usuario con 
 
 ## Decisiones técnicas
 
-- Sitio construido con HTML, CSS y JavaScript sin frameworks ni proceso de build, lo que mantiene el despliegue como un simple servido de archivos estáticos.
+- Construí el sitio con HTML, CSS y JavaScript sin frameworks ni proceso de build, para mantener el despliegue como un simple servido de archivos estáticos.
 - El contenido de servicios y proyectos está escrito directamente en el HTML, sin depender de una base de datos para el sitio público.
 - El filtrado y ordenamiento de servicios se resuelve en el cliente y admite enlaces profundos mediante el parámetro `?cat=`.
 - Estilos organizados en hojas separadas por sección en lugar de un único archivo.
