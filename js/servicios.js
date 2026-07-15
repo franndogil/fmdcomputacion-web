@@ -19,35 +19,12 @@ function renderGrid(cards) {
     container.appendChild(grid);
 }
 
-function renderAgrupado(cards) {
-    const grupos = {};
-    cardsSortedByTitulo(cards)
-        .sort((a, b) => a.dataset.cat.localeCompare(b.dataset.cat, 'es'))
-        .forEach(c => {
-            (grupos[c.dataset.cat] ||= []).push(c);
-        });
-
-    container.innerHTML = '';
-    Object.entries(grupos).forEach(([cat, items]) => {
-        const section = document.createElement('div');
-        section.className = 'categoria-section';
-        section.innerHTML = `<h2 class="categoria-titulo">${cat}</h2>`;
-        const grid = document.createElement('div');
-        grid.className = 'services-grid';
-        items.forEach(c => grid.appendChild(c));
-        section.appendChild(grid);
-        container.appendChild(section);
-    });
-}
-
 function aplicarFiltro(cat) {
     document.querySelectorAll('.filtro-btn').forEach(b =>
         b.classList.toggle('active', b.dataset.cat === cat)
     );
 
-    if (cat === 'todos') {
-        renderAgrupado(allCards);
-    } else if (cat === 'az') {
+    if (cat === 'az') {
         renderGrid(cardsSortedByTitulo(allCards));
     } else {
         renderGrid(cardsSortedByTitulo(allCards.filter(c => c.dataset.cat === cat)));

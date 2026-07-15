@@ -33,24 +33,7 @@
   font-weight: 700;
 }
 
-/* ── Grupos por categoría ── */
-.categoria-section {
-  margin-bottom: 3rem;
-}
-
-.categoria-titulo {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(6,235,212,0.15);
-}
-
-.no-results,
-.servicios-loading {
+.no-results {
   color: rgba(255,255,255,0.4);
   text-align: center;
   padding: 3rem 0;
