@@ -235,17 +235,6 @@ Formulario con `action="mailto:"` que abre el cliente de correo del usuario con 
 
 ---
 
-## Posibles mejoras
-
-- Referencia a `css/mobile.css` en `index.html` y `servicios.html`: el archivo no existe en el repositorio, por lo que conviene crearlo o eliminar la referencia.
-- El sitio público repite bloques de navegación y pie de página en cada HTML; podrían centralizarse para facilitar el mantenimiento.
-- El formulario de contacto depende de `mailto:`; un endpoint de envío mejoraría la fiabilidad y la experiencia.
-- El panel de administración lee datos pero aún no permite gestionar servicios ni proyectos (los enlaces "Servicios" y "Proyectos" del sidebar apuntan a `#`); podría completarse el CRUD.
-- Definir un archivo de despliegue (por ejemplo, para el hosting utilizado) para documentar y reproducir el proceso de publicación.
-- Añadir un `package.json` con scripts de servido y linting facilitaría el trabajo local.
-
----
-
 ## Licencia
 
 Este proyecto se distribuye bajo la licencia MIT.
