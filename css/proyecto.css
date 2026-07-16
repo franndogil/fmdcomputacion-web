@@ -344,6 +344,21 @@
     box-shadow: 0 0 32px rgba(6,235,212,0.45);
 }
 
+/* Variante secundaria: para no competir con el CTA principal del sidebar */
+.sidebar-cta--ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    box-shadow: none;
+    margin-top: .75rem;
+}
+
+.sidebar-cta--ghost:hover {
+    background: rgba(6,235,212,0.1);
+    color: var(--accent);
+    box-shadow: none;
+}
+
 /* ── CTA FINAL ── */
 
 .proyecto-cta-section {

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>E-commerce y Sistema de Gestión para CAINA | FMDCOMPUTACION</title>
+    <meta name="description" content="Desarrollo de un e-commerce con panel administrativo para CAINA, gráfica personalizada de Berazategui: catálogo, variantes, stock y pedidos por WhatsApp." />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/proyecto.css">
+</head>
+<body>
+
+<!-- NAV  (no modificar) -->
+<nav id="main-nav">
+    <div class="nav-bar">
+        <a href="/index.html" class="nav-logo"><img src="/assets/navIcon.png" alt="FMD Computación"><span></span></a>
+        <ul class="nav-links">
+            <li><a href="/servicios.html">Servicios</a></li>
+            <li><a href="/proyectos.html">Proyectos</a></li>
+            <li><a href="/index.html#por-que">Nosotros</a></li>
+            <li><a href="/index.html#contacto">Contacto</a></li>
+        </ul>
+        <a href="https://wa.me/5491128352176" target="_blank" class="nav-cta">WhatsApp</a>
+        <button class="nav-hamburger" aria-label="Abrir menú" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="nav-mobile-menu">
+        <a href="/servicios.html" onclick="closeMenu()">Servicios</a>
+        <a href="/proyectos.html" onclick="closeMenu()">Proyectos</a>
+        <a href="/index.html#por-que" onclick="closeMenu()">Nosotros</a>
+        <a href="/index.html#contacto" onclick="closeMenu()">Contacto</a>
+        <a href="https://wa.me/5491128352176" target="_blank" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>
+    </div>
+</nav>
+
+
+<!-- HERO  — encabezado del proyecto -->
+<header class="proyecto-hero">
+
+    <div class="proyecto-tag">Web</div>
+
+    <h1>E-commerce y Sistema de Gestión para <em>CAINA</em></h1>
+
+    <div class="proyecto-meta">
+        <div class="proyecto-meta-item">Julio 2026</div>
+        <div class="proyecto-meta-dot"></div>
+        <div class="proyecto-meta-item">Berazategui, BA</div>
+        <div class="proyecto-meta-dot"></div>
+        <div class="proyecto-meta-item">Desarrollo completo</div>
+    </div>
+
+</header>
+
+
+<!-- CARRUSEL DE IMÁGENES -->
+<div class="carousel-section">
+    <div class="carousel" id="carousel">
+
+        <div class="carousel-track" id="carousel-track">
+
+            <div class="carousel-slide">
+                <img src="/proyectos/ecommerce-y-sistema-de-gestion-para-CAINA/img/inicio_desktop.png" alt="Pantalla de inicio del sitio de CAINA con el logo sobre un fondo de stickers" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/ecommerce-y-sistema-de-gestion-para-CAINA/img/catalogo.png" alt="Catálogo de productos con filtros por categoría, tipo, material y tamaño" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/ecommerce-y-sistema-de-gestion-para-CAINA/img/carrito.png" alt="Carrito con el detalle del pedido, el total y el botón para enviarlo por WhatsApp" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/ecommerce-y-sistema-de-gestion-para-CAINA/img/panel.png" alt="Panel de administración con el listado de productos del catálogo" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/ecommerce-y-sistema-de-gestion-para-CAINA/img/login.png" alt="Pantalla de acceso al panel de administración de CAINA" />
+            </div>
+
+        </div>
+
+        <!-- Flechas de navegación (se generan con JS) -->
+        <button class="carousel-btn carousel-btn--prev" id="carousel-prev" aria-label="Imagen anterior">&#8249;</button>
+        <button class="carousel-btn carousel-btn--next" id="carousel-next" aria-label="Imagen siguiente">&#8250;</button>
+
+        <!-- Puntos indicadores (se generan con JS) -->
+        <div class="carousel-dots" id="carousel-dots"></div>
+
+    </div>
+</div>
+
+
+<!-- CONTENIDO PRINCIPAL-->
+<div class="proyecto-content">
+    <div class="proyecto-layout">
+
+        <!-- ── DESCRIPCIÓN ── -->
+        <div class="proyecto-descripcion">
+
+            <!-- Bloque 1: descripción general -->
+            <div>
+                <h2>Sobre el proyecto</h2>
+                <p>
+                    CAINA es una gráfica de personalización de Berazategui que manejaba su catálogo
+                    y sus pedidos a mano. Necesitaba una tienda online donde los clientes pudieran ver
+                    los productos con sus precios reales y armar el pedido solos, y un panel donde
+                    cargar y actualizar todo sin depender de nadie.
+                </p>
+                <p>
+                    El resultado son dos piezas conectadas: una vitrina pública con catálogo, filtros
+                    y carrito que cierra el pedido por WhatsApp, y un panel administrativo privado para
+                    gestionar productos, variantes, stock y precios. Está en producción.
+                </p>
+            </div>
+
+            <!-- Bloque 2: proceso o solución -->
+            <div>
+                <h2>Lo que hicimos</h2>
+                <ul>
+                    <li>Catálogo dinámico con carga paginada y filtros combinables por categoría, tipo, material y tamaño.</li>
+                    <li>Carrito persistente que arma el pedido con detalle y total, y lo envía por WhatsApp.</li>
+                    <li>Panel administrativo con login seguro y CRUD completo de productos.</li>
+                    <li>Generación automática de variantes cruzando material y tamaño, con stock y precio por cada una.</li>
+                    <li>Subida de imágenes con conversión a WebP en el navegador y reordenamiento por drag &amp; drop.</li>
+                    <li>Diseño mobile-first y puesta en producción.</li>
+                </ul>
+            </div>
+
+            <!-- Bloque 3: resultado -->
+            <div>
+                <h2>Resultado</h2>
+                <p>
+                    CAINA administra hoy más de 1.000 variantes de producto por su cuenta, sin tocar
+                    código y sin intermediarios. Los clientes llegan al WhatsApp con el pedido ya armado
+                    y el precio cerrado, lo que elimina la ida y vuelta para cotizar. La web se hizo en
+                    JavaScript vanilla, sin frameworks ni proceso de build, justamente para que
+                    mantenerla a futuro sea simple y barato.
+                </p>
+            </div>
+        </div>
+
+        <!-- ── SIDEBAR — detalles del proyecto ── -->
+        <aside class="proyecto-sidebar">
+            <div class="sidebar-card">
+                <h3>Detalles del proyecto</h3>
+
+                <div class="detail-item">
+                    <div class="detail-label">Categoría</div>
+                    <div class="detail-value">Desarrollo web</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value">CAINA Gráfica Personalizada</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Fecha</div>
+                    <div class="detail-value">Julio 2026</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Zona</div>
+                    <div class="detail-value">Berazategui, Buenos Aires</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Componentes / Tecnologías</div>
+                    <div class="sidebar-tags">
+                        <span class="sidebar-tag">JavaScript</span>
+                        <span class="sidebar-tag">HTML5</span>
+                        <span class="sidebar-tag">CSS3</span>
+                        <span class="sidebar-tag">Supabase</span>
+                        <span class="sidebar-tag">PostgreSQL</span>
+                        <span class="sidebar-tag">Netlify</span>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Duración</div>
+                    <div class="detail-value">Proyecto en curso</div>
+                </div>
+
+                <a href="https://wa.me/5491128352176?text=Hola!%20Vi%20el%20proyecto%20de%20CAINA%20y%20quiero%20una%20web%20similar"
+                   target="_blank"
+                   class="sidebar-cta">
+                    Pedir presupuesto similar
+                </a>
+
+                <a href="https://cainaweb.netlify.app/"
+                   target="_blank" rel="noopener"
+                   class="sidebar-cta sidebar-cta--ghost">
+                    Ver el sitio en vivo →
+                </a>
+            </div>
+        </aside>
+    </div>
+</div>
+
+
+<!-- CTA FINAL-->
+<div class="proyecto-cta-section">
+    <div class="proyecto-cta">
+        <p>¿Querés un proyecto similar?</p>
+        <a href="https://wa.me/5491128352176?text=Hola!%20Vi%20un%20proyecto%20y%20quiero%20consultar"
+           target="_blank"
+           class="btn-primary">
+            Escribinos por WhatsApp
+        </a>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="nav-logo"><img src="/assets/navIcon.png" alt=""><span style="color:var(--accent)"></span></div>
+            <p>PCs, redes, cámaras y soluciones IT · Quilmes, BA</p>
+        </div>
+        <div class="footer-links">
+            <a href="/servicios.html">Servicios</a>
+            <a href="/proyectos.html">Proyectos</a>
+            <a href="/faqs.html">FAQs</a>
+            <a href="/index.html#contacto">Contacto</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://wa.me/5491128352176" target="_blank" class="social-btn" title="WhatsApp"><img src="/assets/icons/whatsapp_white.png" alt=""></a>
+            <a href="https://www.instagram.com/fmdcomputacion/" target="_blank" class="social-btn" title="Instagram"><img src="/assets/icons/instragram_white.png" alt=""></a>
+            <a href="https://www.tiktok.com/@fmdcomputacion" target="_blank" class="social-btn" title="TikTok"><img src="/assets/icons/tiktok_white.png" alt=""></a>
+            <a href="https://www.youtube.com/@FMD_Vlogs" target="_blank" class="social-btn" title="YouTube"><img src="/assets/icons/youtube_white.png" alt=""></a>
+            <a href="https://www.facebook.com/FMDCOMPUTACION" target="_blank" class="social-btn" title="Facebook"><img src="/assets/icons/facebook_white.png" alt=""></a>
+            <a href="mailto:fmdcomputacion@gmail.com" class="social-btn" title="Email"><img src="/assets/icons/email_white.png" alt=""></a>
+        </div>
+    </div>
+    <div class="footer-copy">
+        © 2026 FMDCOMPUTACION · Quilmes, Buenos Aires · +54 9 11 2835-2176<br>
+        <p>Lunes a Viernes de 9:00 a 19:00<br>Sábados de 9:00 a 14:00</p>
+    </div>
+</footer>
+
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5491128352176?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar"
+   target="_blank" class="wa-float" title="Escribinos por WhatsApp">
+    <img src="/assets/icons/whatsapp_white_button.png" alt="">
+</a>
+
+
+<!-- SCRIPTS-->
+<script src="/js/nav.js"></script>
+<script src="/js/lightbox.js"></script>
+
+<script>
+(function () {
+    const carousel  = document.getElementById('carousel');
+    const track     = document.getElementById('carousel-track');
+    const slides    = track.querySelectorAll('.carousel-slide');
+    const dotsWrap  = document.getElementById('carousel-dots');
+    const btnPrev   = document.getElementById('carousel-prev');
+    const btnNext   = document.getElementById('carousel-next');
+
+    let current     = 0;
+    let autoTimer   = null;
+    const total     = slides.length;
+
+    /* ── Si hay una sola imagen, ocultar controles ── */
+    if (total <= 1) {
+        btnPrev.style.display = 'none';
+        btnNext.style.display = 'none';
+        return;
+    }
+
+    /* ── Crear dots ── */
+    slides.forEach(function (_, i) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+        dot.addEventListener('click', function () { goTo(i); resetAuto(); });
+        dotsWrap.appendChild(dot);
+    });
+
+    /* ── Navegación ── */
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + slides[current].offsetLeft + 'px)';
+        dotsWrap.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+            d.classList.toggle('active', i === current);
+        });
+    }
+
+    window.addEventListener('resize', function () { goTo(current); });
+
+    btnPrev.addEventListener('click', function () { goTo(current - 1); resetAuto(); });
+    btnNext.addEventListener('click', function () { goTo(current + 1); resetAuto(); });
+
+    /* ── Teclado ── */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft')  { goTo(current - 1); resetAuto(); }
+        if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
+    });
+
+    /* ── Touch / swipe ── */
+    var touchStartX = 0;
+    carousel.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', function (e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 44) {
+            goTo(diff > 0 ? current + 1 : current - 1);
+            resetAuto();
+        }
+    }, { passive: true });
+
+    /* ── Auto-play ── */
+    function startAuto() {
+        autoTimer = setInterval(function () { goTo(current + 1); }, 6000);
+    }
+    function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+    }
+
+    carousel.addEventListener('mouseenter', function () { clearInterval(autoTimer); });
+    carousel.addEventListener('mouseleave', startAuto);
+
+    startAuto();
+}());
+</script>
+
+</body>
+</html>
