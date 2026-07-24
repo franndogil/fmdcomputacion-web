@@ -1,0 +1,107 @@
+/* ─────────────────────────────────────────────
+   ANIMACIONES — FMDCOMPUTACION
+   Entrada del hero + reveal on scroll + micro-interacciones.
+   Todo se desactiva si el usuario pide menos movimiento.
+   ───────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ── Reveal on scroll ──
+     Los elementos con .reveal arrancan ocultos y suben al entrar. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);
+    will-change: opacity, transform;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── Entrada del hero (al cargar) ── */
+  .hero-badge,
+  .hero h1,
+  .hero-desc,
+  .hero-btns {
+    animation: fmd-hero-up .8s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .hero-badge { animation-delay: .05s; }
+  .hero h1    { animation-delay: .16s; }
+  .hero-desc  { animation-delay: .30s; }
+  .hero-btns  { animation-delay: .42s; }
+
+  .hero-profile {
+    animation: fmd-hero-in 1s cubic-bezier(.22,.61,.36,1) .28s both;
+  }
+
+  /* ── Entrada del hero de las páginas de proyecto ── */
+  .proyecto-hero .proyecto-tag,
+  .proyecto-hero h1,
+  .proyecto-hero .proyecto-meta {
+    animation: fmd-hero-up .8s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .proyecto-hero .proyecto-tag  { animation-delay: .05s; }
+  .proyecto-hero h1             { animation-delay: .16s; }
+  .proyecto-hero .proyecto-meta { animation-delay: .30s; }
+
+  @keyframes fmd-hero-up {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes fmd-hero-in {
+    from { opacity: 0; transform: scale(.92); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+/* ── Micro-interacciones (funcionan siempre, son suaves) ── */
+
+/* El ícono del servicio reacciona al hover de la card */
+.service-card .service-icon,
+.service-card .service-icon img {
+  transition: transform .28s cubic-bezier(.22,.61,.36,1);
+}
+.service-card:hover .service-icon {
+  transform: translateY(-3px) rotate(-4deg);
+}
+.service-card:hover .service-icon img {
+  transform: scale(1.12);
+}
+
+/* El check de "por qué elegirnos" hace un pequeño rebote al hover */
+.why-item .why-check,
+.about-highlight .why-check {
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), background .25s;
+}
+.why-item:hover .why-check,
+.about-highlight:hover .why-check {
+  transform: scale(1.12) rotate(6deg);
+  background: rgba(6,235,212,0.28);
+}
+
+/* Botones de contacto: el ícono se ilumina al pasar el mouse por la fila */
+.contact-item .contact-icon {
+  transition: transform .25s, border-color .25s, background .25s;
+}
+.contact-item:hover .contact-icon {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: rgba(6,235,212,0.2);
+}
+
+/* Botones sociales del footer: pequeño salto */
+.social-btn { transition: background .2s, border-color .2s, transform .2s; }
+.social-btn:hover { transform: translateY(-3px); }
+
+/* Latido suave del botón flotante de WhatsApp para llamar la atención */
+@media (prefers-reduced-motion: no-preference) {
+  .wa-float {
+    animation: fmd-wa-pulse 2.6s ease-in-out infinite;
+  }
+  .wa-float:hover { animation-play-state: paused; }
+  @keyframes fmd-wa-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+    50%      { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 12px rgba(37,211,102,0); }
+  }
+}
