@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sitio web para Terraza de Montaña | FMDCOMPUTACION</title>
+    <meta name="description" content="Desarrollo del sitio web de Terraza de Montaña, cabaña de alquiler en Panaholma, Traslasierra: galería con lightbox, mapa interactivo de la zona, SEO y consultas por WhatsApp." />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/proyecto.css">
+    <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+
+<!-- NAV  (no modificar) -->
+<nav id="main-nav">
+    <div class="nav-bar">
+        <a href="/index.html" class="nav-logo"><img src="/assets/navIcon.png" alt="FMD Computación"><span></span></a>
+        <ul class="nav-links">
+            <li><a href="/servicios.html">Servicios</a></li>
+            <li><a href="/proyectos.html">Proyectos</a></li>
+            <li><a href="/index.html#por-que">Nosotros</a></li>
+            <li><a href="/index.html#contacto">Contacto</a></li>
+        </ul>
+        <a href="https://wa.me/5491128352176" target="_blank" class="nav-cta">WhatsApp</a>
+        <button class="nav-hamburger" aria-label="Abrir menú" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="nav-mobile-menu">
+        <a href="/servicios.html" onclick="closeMenu()">Servicios</a>
+        <a href="/proyectos.html" onclick="closeMenu()">Proyectos</a>
+        <a href="/index.html#por-que" onclick="closeMenu()">Nosotros</a>
+        <a href="/index.html#contacto" onclick="closeMenu()">Contacto</a>
+        <a href="https://wa.me/5491128352176" target="_blank" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>
+    </div>
+</nav>
+
+
+<!-- HERO  — encabezado del proyecto -->
+<header class="proyecto-hero">
+
+    <div class="proyecto-tag">Web</div>
+
+    <h1>Sitio web para <em>Terraza de Montaña</em></h1>
+
+    <div class="proyecto-meta">
+        <div class="proyecto-meta-item">Julio 2026</div>
+        <div class="proyecto-meta-dot"></div>
+        <div class="proyecto-meta-item">Panaholma, Córdoba</div>
+        <div class="proyecto-meta-dot"></div>
+        <div class="proyecto-meta-item">Desarrollo completo</div>
+    </div>
+
+</header>
+
+
+<!-- CARRUSEL DE IMÁGENES -->
+<div class="carousel-section">
+    <div class="carousel" id="carousel">
+
+        <div class="carousel-track" id="carousel-track">
+
+            <div class="carousel-slide">
+                <img src="/proyectos/sitio-web-para-Terraza-de-Montania/img/1.png" alt="Portada del sitio de Terraza de Montaña con el slider de fotos y el botón para consultar disponibilidad" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/sitio-web-para-Terraza-de-Montania/img/2.png" alt="Página Nosotros con la historia de los anfitriones y el origen de Terraza de Montaña" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/sitio-web-para-Terraza-de-Montania/img/3.png" alt="Listado de alojamientos con la ficha de la Cabaña en Los Morteritos y sus servicios" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/sitio-web-para-Terraza-de-Montania/img/4.png" alt="Página La zona con los lugares y actividades del Valle de Traslasierra" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/sitio-web-para-Terraza-de-Montania/img/5.png" alt="Mapa interactivo de la zona con los puntos de interés marcados alrededor de Terraza de Montaña" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/sitio-web-para-Terraza-de-Montania/img/6.png" alt="Página de contacto con accesos a WhatsApp, Instagram y email" />
+            </div>
+            <div class="carousel-slide">
+                <img src="/proyectos/sitio-web-para-Terraza-de-Montania/img/7.png" alt="Sección de preguntas frecuentes con acordeones por tema" />
+            </div>
+
+        </div>
+
+        <!-- Flechas de navegación (se generan con JS) -->
+        <button class="carousel-btn carousel-btn--prev" id="carousel-prev" aria-label="Imagen anterior">&#8249;</button>
+        <button class="carousel-btn carousel-btn--next" id="carousel-next" aria-label="Imagen siguiente">&#8250;</button>
+
+        <!-- Puntos indicadores (se generan con JS) -->
+        <div class="carousel-dots" id="carousel-dots"></div>
+
+    </div>
+</div>
+
+
+<!-- CONTENIDO PRINCIPAL-->
+<div class="proyecto-content">
+    <div class="proyecto-layout">
+
+        <!-- ── DESCRIPCIÓN ── -->
+        <div class="proyecto-descripcion">
+
+            <!-- Bloque 1: descripción general -->
+            <div>
+                <h2>Sobre el proyecto</h2>
+                <p>
+                    Terraza de Montaña es una cabaña de alquiler en Los Morteritos, Panaholma, en el
+                    Valle de Traslasierra. Todas las consultas llegaban por Instagram y por plataformas
+                    de reservas, sin un lugar propio donde mostrar la casa, el entorno y qué se puede
+                    hacer en la zona.
+                </p>
+                <p>
+                    Desarrollamos el sitio completo con dominio propio: portada, presentación de los
+                    anfitriones, ficha del alojamiento con galería, un mapa interactivo del valle,
+                    contacto y preguntas frecuentes. Cada página empuja a la misma acción, consultar
+                    disponibilidad por WhatsApp. Está en producción en terrazademontana.com.
+                </p>
+            </div>
+
+            <!-- Bloque 2: proceso o solución -->
+            <div>
+                <h2>Lo que hicimos</h2>
+                <ul>
+                    <li>Sitio de siete páginas: inicio, nosotros, alojamientos, ficha del alojamiento, la zona, contacto y FAQs.</li>
+                    <li>Slider de portada con loop infinito y llamado a consultar disponibilidad.</li>
+                    <li>Galería de fotos con lightbox en la ficha de la cabaña.</li>
+                    <li>Mapa interactivo del Valle de Traslasierra con MapLibre GL JS, con los lugares y actividades de la zona.</li>
+                    <li>SEO completo: metadatos, Open Graph, datos estructurados JSON-LD (LodgingBusiness), robots.txt y sitemap.xml.</li>
+                    <li>Diseño mobile-first con menú hamburguesa y botón flotante de WhatsApp.</li>
+                    <li>Configuración del dominio propio y puesta en producción.</li>
+                </ul>
+            </div>
+
+            <!-- Bloque 3: resultado -->
+            <div>
+                <h2>Resultado</h2>
+                <p>
+                    Terraza de Montaña tiene hoy su propia carta de presentación: el huésped ve la casa,
+                    la pileta, el entorno y qué hacer alrededor antes de escribir, y la consulta entra
+                    directo al WhatsApp de los anfitriones, sin comisiones ni intermediarios. El sitio se
+                    hizo en JavaScript vanilla, sin frameworks ni proceso de build, para que cargue rápido
+                    incluso con conexión de campo y mantenerlo sea simple y barato.
+                </p>
+            </div>
+        </div>
+
+        <!-- ── SIDEBAR — detalles del proyecto ── -->
+        <aside class="proyecto-sidebar">
+            <div class="sidebar-card">
+                <h3>Detalles del proyecto</h3>
+
+                <div class="detail-item">
+                    <div class="detail-label">Categoría</div>
+                    <div class="detail-value">Desarrollo web</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value">Terraza de Montaña</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Fecha</div>
+                    <div class="detail-value">Julio 2026</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Zona</div>
+                    <div class="detail-value">Panaholma, Traslasierra, Córdoba</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Componentes / Tecnologías</div>
+                    <div class="sidebar-tags">
+                        <span class="sidebar-tag">JavaScript</span>
+                        <span class="sidebar-tag">HTML5</span>
+                        <span class="sidebar-tag">CSS3</span>
+                        <span class="sidebar-tag">MapLibre GL JS</span>
+                        <span class="sidebar-tag">JSON-LD</span>
+                        <span class="sidebar-tag">SEO</span>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Duración</div>
+                    <div class="detail-value">Proyecto en curso</div>
+                </div>
+
+                <a href="https://wa.me/5491128352176?text=Hola!%20Vi%20el%20proyecto%20de%20Terraza%20de%20Monta%C3%B1a%20y%20quiero%20una%20web%20similar"
+                   target="_blank"
+                   class="sidebar-cta">
+                    Pedir presupuesto similar
+                </a>
+
+                <a href="https://terrazademontana.com/"
+                   target="_blank" rel="noopener"
+                   class="sidebar-cta sidebar-cta--ghost">
+                    Ver el sitio en vivo →
+                </a>
+            </div>
+        </aside>
+    </div>
+</div>
+
+
+<!-- CTA FINAL-->
+<div class="proyecto-cta-section">
+    <div class="proyecto-cta">
+        <p>¿Querés un proyecto similar?</p>
+        <a href="https://wa.me/5491128352176?text=Hola!%20Vi%20un%20proyecto%20y%20quiero%20consultar"
+           target="_blank"
+           class="btn-primary">
+            Escribinos por WhatsApp
+        </a>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="nav-logo"><img src="/assets/navIcon.png" alt=""><span style="color:var(--accent)"></span></div>
+            <p>PCs, redes, cámaras y soluciones IT · Quilmes, BA</p>
+        </div>
+        <div class="footer-links">
+            <a href="/servicios.html">Servicios</a>
+            <a href="/proyectos.html">Proyectos</a>
+            <a href="/faqs.html">FAQs</a>
+            <a href="/index.html#contacto">Contacto</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://wa.me/5491128352176" target="_blank" class="social-btn" title="WhatsApp"><img src="/assets/icons/whatsapp_white.png" alt=""></a>
+            <a href="https://www.instagram.com/fmdcomputacion/" target="_blank" class="social-btn" title="Instagram"><img src="/assets/icons/instragram_white.png" alt=""></a>
+            <a href="https://www.tiktok.com/@fmdcomputacion" target="_blank" class="social-btn" title="TikTok"><img src="/assets/icons/tiktok_white.png" alt=""></a>
+            <a href="https://www.youtube.com/@FMD_Vlogs" target="_blank" class="social-btn" title="YouTube"><img src="/assets/icons/youtube_white.png" alt=""></a>
+            <a href="https://www.facebook.com/FMDCOMPUTACION" target="_blank" class="social-btn" title="Facebook"><img src="/assets/icons/facebook_white.png" alt=""></a>
+            <a href="mailto:fmdcomputacion@gmail.com" class="social-btn" title="Email"><img src="/assets/icons/email_white.png" alt=""></a>
+        </div>
+    </div>
+    <div class="footer-copy">
+        © 2026 FMDCOMPUTACION · Quilmes, Buenos Aires · +54 9 11 2835-2176<br>
+        <p>Lunes a Viernes de 9:00 a 19:00<br>Sábados de 9:00 a 14:00</p>
+    </div>
+</footer>
+
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5491128352176?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar"
+   target="_blank" class="wa-float" title="Escribinos por WhatsApp">
+    <img src="/assets/icons/whatsapp_white_button.png" alt="">
+</a>
+
+
+<!-- SCRIPTS-->
+<script src="/js/nav.js"></script>
+<script src="/js/lightbox.js"></script>
+<script src="/js/reveal.js"></script>
+
+<script>
+(function () {
+    const carousel  = document.getElementById('carousel');
+    const track     = document.getElementById('carousel-track');
+    const slides    = track.querySelectorAll('.carousel-slide');
+    const dotsWrap  = document.getElementById('carousel-dots');
+    const btnPrev   = document.getElementById('carousel-prev');
+    const btnNext   = document.getElementById('carousel-next');
+
+    let current     = 0;
+    let autoTimer   = null;
+    const total     = slides.length;
+
+    /* ── Si hay una sola imagen, ocultar controles ── */
+    if (total <= 1) {
+        btnPrev.style.display = 'none';
+        btnNext.style.display = 'none';
+        return;
+    }
+
+    /* ── Crear dots ── */
+    slides.forEach(function (_, i) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+        dot.addEventListener('click', function () { goTo(i); resetAuto(); });
+        dotsWrap.appendChild(dot);
+    });
+
+    /* ── Navegación ── */
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + slides[current].offsetLeft + 'px)';
+        dotsWrap.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+            d.classList.toggle('active', i === current);
+        });
+    }
+
+    window.addEventListener('resize', function () { goTo(current); });
+
+    btnPrev.addEventListener('click', function () { goTo(current - 1); resetAuto(); });
+    btnNext.addEventListener('click', function () { goTo(current + 1); resetAuto(); });
+
+    /* ── Teclado ── */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft')  { goTo(current - 1); resetAuto(); }
+        if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
+    });
+
+    /* ── Touch / swipe ── */
+    var touchStartX = 0;
+    carousel.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', function (e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 44) {
+            goTo(diff > 0 ? current + 1 : current - 1);
+            resetAuto();
+        }
+    }, { passive: true });
+
+    /* ── Auto-play ── */
+    function startAuto() {
+        autoTimer = setInterval(function () { goTo(current + 1); }, 6000);
+    }
+    function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+    }
+
+    carousel.addEventListener('mouseenter', function () { clearInterval(autoTimer); });
+    carousel.addEventListener('mouseleave', startAuto);
+
+    startAuto();
+}());
+</script>
+
+</body>
+</html>
