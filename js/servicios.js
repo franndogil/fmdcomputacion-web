@@ -7,7 +7,10 @@ function cardsSortedByTitulo(cards) {
     );
 }
 
-function renderGrid(cards) {
+/* inmediato = la lista es respuesta a un click, así que se muestra ya.
+   Sin esto las cards conservan el retardo de cascada de su posición
+   anterior y algunas entran con opacity 0 y más de un segundo de espera. */
+function renderGrid(cards, inmediato) {
     if (cards.length === 0) {
         container.innerHTML = '<p class="no-results">No hay servicios en esta categoría.</p>';
         return;
@@ -17,22 +20,21 @@ function renderGrid(cards) {
     cards.forEach(c => grid.appendChild(c));
     container.innerHTML = '';
     container.appendChild(grid);
+
+    if (inmediato && window.FMDReveal) window.FMDReveal.limpiar(grid);
 }
 
-function aplicarFiltro(cat) {
+function aplicarFiltro(cat, inmediato) {
     document.querySelectorAll('.filtro-btn').forEach(b =>
         b.classList.toggle('active', b.dataset.cat === cat)
     );
 
-    if (cat === 'az') {
-        renderGrid(cardsSortedByTitulo(allCards));
-    } else {
-        renderGrid(cardsSortedByTitulo(allCards.filter(c => c.dataset.cat === cat)));
-    }
+    const visibles = cat === 'az' ? allCards : allCards.filter(c => c.dataset.cat === cat);
+    renderGrid(cardsSortedByTitulo(visibles), inmediato);
 }
 
 document.querySelectorAll('.filtro-btn').forEach(btn => {
-    btn.addEventListener('click', () => aplicarFiltro(btn.dataset.cat));
+    btn.addEventListener('click', () => aplicarFiltro(btn.dataset.cat, true));
 });
 
 const urlCat = new URLSearchParams(window.location.search).get('cat');

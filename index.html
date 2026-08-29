@@ -6,13 +6,13 @@
     <title>Reparación de PC en Quilmes | Servicio Técnico – FMDCOMPUTACION</title>
     <meta name="description" content="Servicio técnico de computadoras en Quilmes. Reparación de PC, limpieza, mantenimiento y armado a medida. Atención rápida y presupuesto sin cargo." />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <script src="/js/layout.js"></script>
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -23,31 +23,8 @@
   </head>
   <body>
 
-    <!-- NAV -->
-    <nav id="main-nav">
-      <div class="nav-bar">
-        <a href="#" class="nav-logo"><img loading="eager" decoding="async" fetchpriority="high" src="/assets/navIcon.png" alt=""><span></span</a>
-        <ul class="nav-links">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#por-que">Nosotros</a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <a href="https://wa.me/5491128352176" target="_blank" class="nav-cta">WhatsApp</a>
-        <button class="nav-hamburger" aria-label="Abrir menú" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-      <div class="nav-mobile-menu">
-        <a href="#servicios" onclick="closeMenu()">Servicios</a>
-        <a href="#proyectos" onclick="closeMenu()">Proyectos</a>
-        <a href="#por-que" onclick="closeMenu()">Nosotros</a>
-        <a href="#sobre-mi" onclick="closeMenu()">Sobre mí</a>
-        <a href="#contacto" onclick="closeMenu()">Contacto</a>
-        <a href="https://wa.me/5491128352176" target="_blank" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>
-      </div>
-    </nav>
+    <!-- NAV (se genera en /js/layout.js) -->
+    <script>FMD.nav()</script>
 
     <!-- HERO -->
     <section class="hero">
@@ -62,14 +39,14 @@
           </p>
 
           <div class="hero-btns">
-            <a href="#servicios" class="btn-primary">Ver servicios</a>
-            <a href="https://wa.me/5491128352176?text=Hola!%20Necesito%20un%20presupuesto" target="_blank" class="btn-secondary">Pedir presupuesto</a>
+            <a href="#servicios" class="btn-primary"><span>Ver servicios</span></a>
+            <a href="https://wa.me/5491128352176?text=Hola!%20Necesito%20un%20presupuesto" target="_blank" rel="noopener" class="btn-secondary"><span>Pedir presupuesto</span></a>
           </div>
         </div>
 
         <div class="hero-profile">
           <div class="profile-photo-wrap">
-            <img loading="eager" decoding="async" fetchpriority="high" src="assets/profile.jpg" alt="FMD Computación" />
+            <img loading="eager" decoding="async" fetchpriority="high" src="/assets/profile.jpg" alt="FMD Computación" />
           </div>
         </div>
       </div>
@@ -108,49 +85,49 @@
               asesoramiento personalizado y soluciones confiables para el día a día.</p>
         </div>
         <div class="services-grid">
-          <a class="service-card" href="servicios.html?cat=Reparacion">
+          <a class="service-card" href="/servicios.html?cat=Reparacion">
             <div class="service-icon"><img loading="lazy" decoding="async" src="/assets/icons-services/reparacion_blue.png" alt=""></div>
             <h3>Reparación de PC y notebooks</h3>
             <p>Diagnóstico y solución de fallas en computadoras. Detectamos el problema y lo resolvemos de forma clara y efectiva.</p>
           </a>
-          <a class="service-card" href="servicios.html?cat=Armado">
+          <a class="service-card" href="/servicios.html?cat=Armado">
             <div class="service-icon"><img loading="lazy" decoding="async" src="/assets/icons-services/armado_blue.png" alt=""></div>
             <h3>Armado de PC</h3>
             <p>Armamos tu computadora a medida según tu presupuesto y necesidades: gaming, trabajo o uso diario.</p>
           </a>
-          <a class="service-card" href="servicios.html?cat=Limpieza">
+          <a class="service-card" href="/servicios.html?cat=Limpieza">
             <div class="service-icon"><img loading="lazy" decoding="async" src="/assets/icons-services/limpieza_blue.png" alt=""></div>
             <h3>Limpieza y mantenimiento</h3>
             <p>Limpieza interna y mantenimiento físico para mejorar temperaturas, rendimiento y prolongar la vida útil del equipo.</p>
           </a>
-          <a class="service-card" href="servicios.html?cat=Software">
+          <a class="service-card" href="/servicios.html?cat=Software">
             <div class="service-icon"><img loading="lazy" decoding="async" src="/assets/icons-services/software_blue.png" alt=""></div>
             <h3>Software y optimización</h3>
             <p>Instalación de sistema operativo, formateo, optimización y solución de problemas de rendimiento.</p>
           </a>
-          <a class="service-card" href="servicios.html?cat=Hardware">
+          <a class="service-card" href="/servicios.html?cat=Hardware">
             <div class="service-icon"><img loading="lazy" decoding="async" src="/assets/icons-services/hardware_blue.png" alt=""></div>
             <h3>Hardware y mejoras</h3>
             <p>Actualizamos componentes como RAM, SSD o placa de video para mejorar el rendimiento de tu equipo.</p>
           </a>
-          <a class="service-card" href="servicios.html?cat=Recuperacion">
+          <a class="service-card" href="/servicios.html?cat=Recuperacion">
             <div class="service-icon"><img loading="lazy" decoding="async" src="/assets/icons-services/datos_blue.png" alt=""></div>
             <h3>Recuperación de datos</h3>
             <p>Recuperamos archivos de discos dañados, sistemas bloqueados o errores de almacenamiento.</p>
           </a>
-          <a class="service-card" href="servicios.html?cat=Redes">
+          <a class="service-card" href="/servicios.html?cat=Redes">
             <div class="service-icon"><img loading="lazy" decoding="async" src="/assets/icons-services/nets_blue.png" alt=""></div>
             <h3>Redes y conectividad</h3>
             <p>Soluciones de conectividad para hogares y negocios: redes cableadas, WiFi, cámaras de seguridad y soporte para sistemas gastronómicos.</p>
           </a>
-          <a class="service-card" href="servicios.html?cat=Web">
+          <a class="service-card" href="/servicios.html?cat=Web">
             <div class="service-icon"><img loading="lazy" decoding="async" src="/assets/icons-services/web2_blue.png" alt=""></div>
             <h3>Diseño de páginas web</h3>
             <p>Creamos páginas web modernas, rápidas y adaptadas a celulares para negocios, emprendimientos y marcas.</p>
           </a>
         </div>
         <div class="gallery-cta">
-          <a href="servicios.html?cat=az" class="btn-secondary">Ver todos los servicios →</a>
+          <a href="/servicios.html?cat=az" class="btn-secondary"><span>Ver todos los servicios →</span></a>
         </div>
       </div>
     </section>
@@ -194,7 +171,7 @@
 
           <a class="project-card" href="/proyectos/camaras-de-seguridad-en-Dickinson/camaras-de-seguridad-en-Dickinson-Restobar.html" role="listitem">
             <div class="pc-img">
-              <img src="/proyectos/camaras-de-seguridad-en-Dickinson/img/2.JPG" alt="Cámaras de seguridad en Dickinson" loading="lazy">
+              <img src="/proyectos/camaras-de-seguridad-en-Dickinson/img/2.jpg" alt="Cámaras de seguridad en Dickinson" loading="lazy">
               <span class="pc-badge">Cámaras</span>
             </div>
             <div class="pc-info">
@@ -245,7 +222,7 @@
       <div class="container">
         <div class="slider-dots" id="slider-dots"></div>
         <div class="gallery-cta">
-          <a href="/proyectos.html" class="btn-secondary">Ver todos los proyectos →</a>
+          <a href="/proyectos.html" class="btn-secondary"><span>Ver todos los proyectos →</span></a>
         </div>
       </div>
     </section>
@@ -317,15 +294,15 @@
         <div class="about-grid">
           <div class="about-photo">
             <div class="profile-photo-wrap">
-              <img loading="lazy" decoding="async" src="assets/profile.jpg" alt="Franco Matias Dogil, fundador de FMDCOMPUTACION" />
+              <img loading="lazy" decoding="async" src="/assets/profile.jpg" alt="Franco Matias Dogil, fundador de FMDCOMPUTACION" />
             </div>
           </div>
 
           <div class="about-text">
             <p>
               Soy Franco Matias Dogil, técnico Aviónico y fundador de FMDCOMPUTACION. <br>
-              Hace más de cinco años trabajo de maneraindependiente brindando soluciones informáticas a 
-              particulares y comercios, y actualmentecurso la Licenciatura en Sistemas en la Universidad 
+              Hace más de cinco años trabajo de manera independiente brindando soluciones informáticas a 
+              particulares y comercios, y actualmente curso la Licenciatura en Sistemas en la Universidad 
               Nacional de La Plata, combinando la experiencia del día a día con una formación académica sólida.
             </p>
             <p>
@@ -439,151 +416,21 @@
 
     <!-- FAQS -->
     <section class="faqs">
-      <div class="footer-faq-cta">
+      <div class="cta-panel">
         <p>¿Tenés alguna duda?</p>
-        <a href="/faqs.html">Ver preguntas frecuentes</a>
+        <a href="/faqs.html" class="btn-primary"><span>Ver preguntas frecuentes</span></a>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-brand">
-            <div class="nav-logo"><img loading="lazy" decoding="async" src="/assets/navIcon.png" alt=""><span style="color:var(--accent)"></span></div>
-            <p>PCs, redes, cámaras y soluciones IT · Quilmes, BA</p>
-            </div>
-            <div class="footer-links">
-            <a href="/servicios.html">Servicios</a>
-            <a href="/proyectos.html">Proyectos</a>
-            <a href="/faqs.html">FAQs</a>
-            <a href="/index.html#contacto">Contacto</a>
-            </div>
-            <div class="footer-social">
-            <a href="https://wa.me/5491128352176" target="_blank" class="social-btn" title="WhatsApp"><img loading="lazy" decoding="async" src="/assets/icons/whatsapp_white.png" alt=""></a>
-            <a href="https://www.instagram.com/fmdcomputacion/" target="_blank" class="social-btn" title="Instagram"><img loading="lazy" decoding="async" src="/assets/icons/instragram_white.png" alt=""></a>
-            <a href="https://www.tiktok.com/@fmdcomputacion" target="_blank" class="social-btn" title="TikTok"><img loading="lazy" decoding="async" src="/assets/icons/tiktok_white.png" alt=""></a>
-            <a href="https://www.youtube.com/@FMD_Vlogs" target="_blank" class="social-btn" title="YouTube"><img loading="lazy" decoding="async" src="/assets/icons/youtube_white.png" alt=""></a>
-            <a href="https://www.facebook.com/FMDCOMPUTACION" target="_blank" class="social-btn" title="Facebook"><img loading="lazy" decoding="async" src="/assets/icons/facebook_white.png" alt=""></a>
-            <a href="mailto:fmdcomputacion@gmail.com" class="social-btn" title="Email"><img loading="lazy" decoding="async" src="/assets/icons/email_white.png" alt=""></a>
-            </div>
-        </div>
-        <div class="footer-copy">
-            © 2026 FMDCOMPUTACION · Quilmes, Buenos Aires · +54 9 11 2835-2176<br>
-            <p>Lunes a Viernes de 9:00 a 19:00<br>Sábados de 9:00 a 14:00</p>
-        </div>
-    </footer>
+    <!-- FOOTER + FLOAT DE WHATSAPP (se generan en /js/layout.js) -->
+    <script>FMD.footer()</script>
 
     <!-- VER SERVICIOS FLOAT -->
-    <a href="servicios.html?cat=az" class="servicios-float" id="servicios-float">Ver servicios →</a>
-
-    <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/5491128352176?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar" target="_blank" class="wa-float" title="Escribinos por WhatsApp">
-      <img loading="lazy" decoding="async" src="/assets/icons/whatsapp_white_button.png" alt="">
-    </a>
+    <a href="/servicios.html?cat=az" class="servicios-float" id="servicios-float">Ver servicios →</a>
 
     <!-- Scripts -->
-    <script src="js/nav.js"></script>
-    <script src="js/reveal.js"></script>
-    <script>
-      (function () {
-        const slider = document.getElementById('projects-slider');
-        const dotsContainer = document.getElementById('slider-dots');
-        const prevBtn = document.getElementById('slider-prev');
-        const nextBtn = document.getElementById('slider-next');
-        if (!slider) return;
-        const cards = Array.from(slider.querySelectorAll('.project-card'));
-
-        cards.forEach((_, i) => {
-          const dot = document.createElement('button');
-          dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
-          dot.setAttribute('aria-label', 'Proyecto ' + (i + 1));
-          dot.addEventListener('click', () => scrollToCard(i));
-          dotsContainer.appendChild(dot);
-        });
-        const dots = Array.from(dotsContainer.querySelectorAll('.slider-dot'));
-
-        function getActiveIndex() {
-          const origin = slider.getBoundingClientRect().left;
-          let closest = 0, minDist = Infinity;
-          cards.forEach((card, i) => {
-            const dist = Math.abs(card.getBoundingClientRect().left - origin);
-            if (dist < minDist) { minDist = dist; closest = i; }
-          });
-          return closest;
-        }
-
-        function updateDots(idx) {
-          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-        }
-
-        function scrollToCard(idx) {
-          const card = cards[idx];
-          slider.scrollTo({ left: card.offsetLeft - slider.offsetLeft, behavior: 'smooth' });
-        }
-
-        slider.addEventListener('scroll', () => updateDots(getActiveIndex()), { passive: true });
-
-        prevBtn && prevBtn.addEventListener('click', () => {
-          const idx = getActiveIndex();
-          if (idx > 0) scrollToCard(idx - 1);
-        });
-        nextBtn && nextBtn.addEventListener('click', () => {
-          const idx = getActiveIndex();
-          if (idx < cards.length - 1) scrollToCard(idx + 1);
-        });
-
-        let isDown = false, startX = 0, scrollStart = 0, didDrag = false;
-        slider.addEventListener('mousedown', e => {
-          isDown = true; didDrag = false;
-          startX = e.pageX; scrollStart = slider.scrollLeft;
-          slider.classList.add('is-dragging');
-        });
-        document.addEventListener('mouseup', () => {
-          if (!isDown) return;
-          isDown = false;
-          slider.classList.remove('is-dragging');
-        });
-        document.addEventListener('mousemove', e => {
-          if (!isDown) return;
-          e.preventDefault();
-          const dx = e.pageX - startX;
-          if (Math.abs(dx) > 4) didDrag = true;
-          slider.scrollLeft = scrollStart - dx;
-        });
-        slider.addEventListener('click', e => {
-          if (didDrag) e.preventDefault();
-        }, true);
-      })();
-    </script>
-    <script>
-      (function () {
-        const floatBtn = document.getElementById('servicios-float');
-        const serviciosSection = document.getElementById('servicios');
-        const galleryCta = serviciosSection.querySelector('.gallery-cta');
-
-        let inServicios = false;
-        let ctaVisible = false;
-
-        function sync() {
-          if (inServicios && !ctaVisible) {
-            floatBtn.classList.add('visible');
-          } else {
-            floatBtn.classList.remove('visible');
-          }
-        }
-
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(e => {
-            if (e.target === serviciosSection) inServicios = e.isIntersecting;
-            if (e.target === galleryCta)       ctaVisible  = e.isIntersecting;
-          });
-          sync();
-        }, { threshold: 0.1 });
-
-        observer.observe(serviciosSection);
-        observer.observe(galleryCta);
-      })();
-    </script>
+    <script src="/js/reveal.js"></script>
+    <script src="/js/index.js"></script>
 
   </body>
 </html>

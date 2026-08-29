@@ -1,20 +1,17 @@
 /* Hero profile card */
     .hero-profile {
-      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1.5rem;
     }
     .profile-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px; padding: 2rem 2rem 1.5rem;
+      border-radius: var(--r-lg); padding: 2rem 2rem 1.5rem;
       display: flex; flex-direction: column; align-items: center;
       width: 100%; max-width: 320px;
       box-shadow: 0 0 60px rgba(6,235,212,0.1);
       position: relative;
-    }
-    .hero-profile {
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .profile-photo-wrap {
@@ -71,7 +68,7 @@
     /* Mini grid */
     .mini-grid {
       display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 3px; width: 100%; max-width: 320px; border-radius: 12px; overflow: hidden;
+      gap: 3px; width: 100%; max-width: 320px; border-radius: var(--r-lg); overflow: hidden;
     }
     .mini-grid img {
       width: 100%; aspect-ratio: 1; object-fit: cover;
@@ -101,7 +98,10 @@
     #servicios { background: var(--bg); }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      /* auto-fill y no auto-fit: con auto-fit, al filtrar y quedar 1 o 2
+         servicios las columnas vacías colapsan y las tarjetas se estiran
+         a todo el ancho. Así conservan siempre el mismo tamaño. */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
     }
     .service-card img{
@@ -110,7 +110,7 @@
     .service-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px; padding: 2rem;
+      border-radius: var(--r-lg); padding: 2rem;
       transition: border-color .25s, transform .25s, box-shadow .25s;
       cursor: pointer;
       text-decoration: none;
@@ -124,7 +124,7 @@
     }
     .service-icon {
       width: 52px; height: 52px;
-      background: rgba(6,235,212,0.1); border-radius: 12px;
+      background: rgba(6,235,212,0.1); border-radius: var(--r-sm);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem; margin-bottom: 1.25rem;
       border: 1px solid var(--border);
@@ -172,7 +172,7 @@
       scroll-snap-align: start;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       text-decoration: none;
       color: inherit;
@@ -215,7 +215,7 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       padding: .28rem .65rem;
-      border-radius: 100px;
+      border-radius: var(--r-sm);
     }
 
     .pc-info {
@@ -276,7 +276,7 @@
       top: 43%;
       transform: translateY(-50%);
       width: 44px; height: 44px;
-      border-radius: 50%;
+      border-radius: var(--r-sm);
       background: rgba(26,26,26,0.92);
       border: 1px solid var(--border);
       color: var(--text);
@@ -322,7 +322,7 @@
     .why-item { display: flex; gap: 1rem; }
     .why-check {
       width: 32px; height: 32px; min-width: 32px;
-      background: rgba(6,235,212,0.15); border-radius: 8px;
+      background: rgba(6,235,212,0.15); border-radius: var(--r-sm);
       display: flex; align-items: center; justify-content: center;
       color: var(--accent); font-weight: 900; font-size: 1rem;
       border: 1px solid var(--border);
@@ -354,59 +354,10 @@
     .about-highlight h4 { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
     .about-highlight p { font-size: .85rem; color: rgba(255,255,255,0.6); margin-bottom: 0; }
 
-        /* ── FAQS ── */
+        /* ── FAQS ──
+       El panel usa .cta-panel (style.css), igual que el resto del sitio. */
     .faqs {
       padding: 0 2rem 3.5rem;
-    }
-
-    .faqs .footer-faq-cta {
-      max-width: 850px;
-      margin: 0 auto;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 1.8rem;
-      text-align: center;
-      transition:
-        border-color .25s,
-        transform .25s,
-        box-shadow .25s;
-    }
-
-    .faqs .footer-faq-cta:hover{
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(6,235,212,0.10);
-    }
-
-    .faqs .footer-faq-cta p{
-      font-size: 1rem;
-      color: rgba(255,255,255,0.72);
-      margin-bottom: 1rem;
-    }
-
-    .faqs .footer-faq-cta a{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: .9rem 1.4rem;
-      border-radius: 12px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      transition:
-        background .25s,
-        color .25s,
-        transform .25s,
-        box-shadow .25s;
-    }
-
-    .faqs .footer-faq-cta a:hover{
-      background: var(--accent);
-      color: #000;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(6,235,212,0.18);
     }
 
     /* ── CONTACTO ── */
@@ -426,7 +377,7 @@
     .contact-item:last-of-type { border-bottom: none; }
     .contact-icon {
       width: 40px; height: 40px; min-width: 40px;
-      background: rgba(6,235,212,0.1); border-radius: 10px;
+      background: rgba(6,235,212,0.1); border-radius: var(--r-sm);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem; border: 1px solid var(--border);
     }
@@ -444,7 +395,7 @@
     .contact-form {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px; padding: 2.5rem;
+      border-radius: var(--r-md); padding: 2.5rem;
     }
     .contact-form h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -456,7 +407,7 @@
       width: 100%;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 10px; padding: .8rem 1rem;
+      border-radius: var(--r-sm); padding: .8rem 1rem;
       color: var(--text); font-size: .9rem;
       transition: border-color .2s;
       outline: none;
@@ -467,14 +418,8 @@
     .form-group textarea:focus,
     .form-group select:focus { border-color: var(--accent); }
     .form-group select option { background: #1a1a1a; }
-    .btn-form {
-      width: 100%; background: var(--accent); color: #000;
-      padding: .9rem; border: none; border-radius: 10px;
-      font-weight: 800; font-size: 1rem; cursor: pointer;
-      transition: background .2s, transform .15s;
-      margin-top: .5rem;
-    }
-    .btn-form:hover { background: var(--accent2); transform: translateY(-1px); }
+    /* .btn-form se estila en el bloque de botones de style.css */
+    .btn-form { margin-top: .5rem; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -510,7 +455,7 @@
       color: var(--accent);
       border: 1px solid var(--border);
       padding: 0.7rem 1.4rem;
-      border-radius: 100px;
+      border-radius: var(--r-sm);
       font-weight: 700;
       font-size: 0.9rem;
       text-decoration: none;

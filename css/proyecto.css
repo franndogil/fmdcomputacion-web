@@ -30,12 +30,15 @@
 
 .proyecto-breadcrumb span { color: rgba(255,255,255,0.2); }
 
+/* El nombre del proyecto no es un separador: se lee igual que los links */
+.proyecto-breadcrumb [aria-current="page"] { color: rgba(255,255,255,0.45); }
+
 .proyecto-tag {
     display: inline-flex;
     align-items: center;
     background: rgba(6,235,212,0.1);
     border: 1px solid var(--border);
-    border-radius: 100px;
+    border-radius: var(--r-sm);
     padding: .25rem .85rem;
     font-size: .75rem;
     font-weight: 700;
@@ -91,7 +94,7 @@
     max-width: 1100px;
     max-height: 560px;
     margin: 0 auto;
-    border-radius: 16px;
+    border-radius: var(--r-lg);
     overflow: hidden;
     background: #111;
     aspect-ratio: 16 / 9;
@@ -144,7 +147,7 @@
     height: 44px;
     background: rgba(0,0,0,0.55);
     border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 50%;
+    border-radius: var(--r-sm);
     color: #fff;
     font-size: 1.4rem;
     line-height: 1;
@@ -265,7 +268,7 @@
 .sidebar-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: var(--r-md);
     padding: 1.75rem;
     display: flex;
     flex-direction: column;
@@ -316,39 +319,27 @@
 .sidebar-tag {
     background: rgba(6,235,212,0.08);
     border: 1px solid var(--border);
-    border-radius: 100px;
+    border-radius: var(--r-sm);
     padding: .15rem .6rem;
     font-size: .72rem;
     font-weight: 600;
     color: var(--accent);
 }
 
+/* Botón del sidebar: el estilo base sale del bloque de botones de
+   style.css, acá solo el tamaño y la separación. */
 .sidebar-cta {
-    display: block;
-    text-align: center;
     margin-top: 1.5rem;
     padding: .85rem;
-    background: var(--accent);
-    color: #000;
-    font-weight: 800;
     font-size: .9rem;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background .2s, transform .15s, box-shadow .2s;
-    box-shadow: 0 0 20px rgba(6,235,212,0.3);
-}
-
-.sidebar-cta:hover {
-    background: var(--accent2);
-    transform: translateY(-2px);
-    box-shadow: 0 0 32px rgba(6,235,212,0.45);
+    font-weight: 800;
 }
 
 /* Variante secundaria: para no competir con el CTA principal del sidebar */
 .sidebar-cta--ghost {
     background: transparent;
     color: var(--accent);
-    border: 1px solid var(--accent);
+    border-color: var(--accent);
     box-shadow: none;
     margin-top: .75rem;
 }
@@ -359,30 +350,11 @@
     box-shadow: none;
 }
 
-/* ── CTA FINAL ── */
+/* ── CTA FINAL ──
+   El panel usa .cta-panel (style.css) */
 
 .proyecto-cta-section {
     padding: 0 8% 6rem;
-}
-
-.proyecto-cta {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 3rem 2rem;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    background: rgba(6,235,212,0.04);
-    text-align: center;
-}
-
-.proyecto-cta p {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: rgba(255,255,255,0.8);
 }
 
 /* ── RESPONSIVE ── */
@@ -492,10 +464,6 @@
 
     .proyecto-cta-section {
         padding: 0 5% 4rem;
-    }
-
-    .proyecto-cta {
-        padding: 2rem 1.25rem;
     }
 
     .sidebar-card {

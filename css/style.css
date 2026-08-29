@@ -8,6 +8,15 @@
       --accent2: #04b8a8;
       --card:    #1a1a1a;
       --border:  rgba(6,235,212,0.2);
+
+      /* Inclinación de botones, chips y paneles */
+      --skew: -9deg;
+
+      /* Radios: casi rectos en todo el sitio.
+         sm = botones, inputs, íconos · md = paneles y formularios · lg = cards e imágenes */
+      --r-sm: 3px;
+      --r-md: 5px;
+      --r-lg: 8px;
     }
 
     html { scroll-behavior: smooth; }
@@ -18,6 +27,171 @@
       color: var(--text);
       line-height: 1.6;
     }
+
+    /* ─────────────────────────────────────────────
+       BOTONES
+       Un solo bloque para todos los botones del sitio.
+       Los que van en línea se inclinan con --skew y el <span>
+       interno endereza el texto:
+           <a class="btn-primary"><span>Ver servicios</span></a>
+       Los de ancho completo (.btn-block, .btn-form, .sidebar-cta,
+       .nav-mobile-cta) van rectos, porque una barra inclinada de punta
+       a punta se desborda de su tarjeta.
+       ───────────────────────────────────────────── */
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-form,
+    .nav-btn,
+    .nav-mobile-cta,
+    .sidebar-cta,
+    .filtro-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: 15px 30px;
+      border: 1.5px solid transparent;
+      border-radius: var(--r-sm);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, color .2s, box-shadow .2s;
+    }
+
+    /* Inclinación + contra-inclinación del texto */
+    .btn-primary,
+    .btn-secondary,
+    .nav-btn,
+    .filtro-btn { transform: skewX(var(--skew)); }
+
+    .btn-primary > span,
+    .btn-secondary > span,
+    .nav-btn > span,
+    .filtro-btn > span {
+      display: inline-block;
+      transform: skewX(calc(var(--skew) * -1));
+    }
+
+    /* ── Llenos ── */
+    .btn-primary,
+    .nav-btn,
+    .nav-mobile-cta,
+    .sidebar-cta {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 12px rgba(6,235,212,0.4);
+    }
+    .btn-primary:hover,
+    .nav-btn:hover,
+    .nav-mobile-cta:hover,
+    .sidebar-cta:hover {
+      background: var(--accent2);
+      color: #000;
+      box-shadow: 0 0 18px rgba(6,235,212,0.55);
+    }
+
+    /* ── Contorno ── */
+    .btn-secondary,
+    .btn-form,
+    .filtro-btn {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(255,255,255,0.25);
+      box-shadow: none;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: rgba(6,235,212,0.08);
+    }
+    .btn-form:hover {
+      background: var(--accent2);
+      border-color: var(--accent);
+      color: #000;
+      box-shadow: 0 0 18px rgba(6,235,212,0.55);
+    }
+
+    /* ── Tamaños ── */
+    .nav-btn {
+      padding: 7px 15px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .filtro-btn {
+      padding: .55rem 1.15rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      border-color: var(--border);
+      white-space: nowrap;
+    }
+    .filtro-btn:hover {
+      background: rgba(6,235,212,0.1);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .filtro-btn.active {
+      background: var(--accent);
+      color: #0a0a0a;
+      border-color: var(--accent);
+    }
+
+    /* ── Ancho completo (rectos) ── */
+    .btn-block,
+    .btn-form,
+    .nav-mobile-cta,
+    .sidebar-cta {
+      display: flex;
+      width: 100%;
+      transform: none;
+    }
+    .btn-block > span,
+    .btn-form > span,
+    .nav-mobile-cta > span,
+    .sidebar-cta > span { transform: none; }
+
+    /* ─────────────────────────────────────────────
+       PANEL DE CTA
+       El bloque "¿Tenés alguna duda? → botón" que cierra el home,
+       las FAQs, los proyectos y cada página de proyecto.
+       ───────────────────────────────────────────── */
+
+    .cta-panel {
+      /* animations.css compone este transform con el del reveal */
+      --el-transform: skewX(var(--skew));
+      transform: var(--el-transform);
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 2.5rem 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      text-align: center;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .cta-panel:hover {
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(6,235,212,0.10);
+    }
+    /* El texto se endereza. El botón no: ya hereda la inclinación del panel
+       y su propio <span> endereza el texto. */
+    .cta-panel > p {
+      transform: skewX(calc(var(--skew) * -1));
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+    }
+    .cta-panel > .btn-primary,
+    .cta-panel > .btn-secondary { transform: none; }
 
     /* ── HERO ── */
     .hero {
@@ -39,12 +213,16 @@
       gap: 4rem; align-items: center; max-width: 1100px; width: 100%;
     }
     .hero-badge {
+      padding: 7px 15px;
+      border-radius: var(--r-sm);
+      /* animations.css compone este transform con el de la entrada del hero */
+      --el-transform: skewX(var(--skew));
+      transform: var(--el-transform);
       display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(6,235,212,0.1); border: 1px solid var(--border);
-      border-radius: 100px; padding: .35rem .9rem;
-      font-size: .8rem; font-weight: 600; color: var(--accent);
+      font-size: 1rem; font-weight: 600; color: var(--accent);
       margin-bottom: 1.5rem; letter-spacing: .5px;
     }
+
     .hero-badge::before { content: '●'; font-size: .5rem; animation: blink 1.5s infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
     .hero h1 {
@@ -59,22 +237,6 @@
       margin-bottom: 2rem; max-width: 440px;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent); color: #000;
-      padding: .85rem 2rem; border-radius: 10px;
-      font-weight: 800; font-size: 1rem; text-decoration: none;
-      transition: background .2s, transform .15s, box-shadow .2s;
-      box-shadow: 0 0 24px rgba(6,235,212,0.4);
-    }
-    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 0 36px rgba(6,235,212,0.55); }
-    .btn-secondary {
-      background: transparent; color: var(--text);
-      padding: .85rem 2rem; border-radius: 10px;
-      font-weight: 700; font-size: 1rem; text-decoration: none;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      transition: border-color .2s, background .2s;
-    }
-    .btn-secondary:hover { border-color: var(--accent); background: rgba(6,235,212,0.08); }
 
     /* ── FOOTER ── */
     footer {
@@ -110,7 +272,7 @@
       width: 38px; height: 38px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
+      border-radius: var(--r-sm);
       display: flex; align-items: center; justify-content: center;
       text-decoration: none; font-size: 1rem;
       transition: background .2s, border-color .2s;
@@ -124,7 +286,8 @@
       text-align: center;
     }
 
-    /* ── WHATSAPP FLOAT ── */
+    /* ── WHATSAPP FLOAT ──
+       Queda redondo a propósito: es el globo de WhatsApp, no un botón del sitio. */
     .wa-float {
       position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
       background: #25d366; color: #fff;
@@ -140,7 +303,7 @@
       height: 40px;
       object-fit: contain;
     }
-    
+
     .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.65); }
 
     /* ── SECTION COMMON ── */
@@ -173,4 +336,6 @@
       .footer-brand { flex: unset; }
       .footer-links { flex: unset; justify-content: center; }
       .footer-social { flex: unset; justify-content: center; }
+
+      .cta-panel { padding: 2rem 1.25rem; }
     }

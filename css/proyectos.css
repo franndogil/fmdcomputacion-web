@@ -34,7 +34,7 @@
 .project-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: var(--r-lg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@
     font-weight: 700;
     font-size: .85rem;
     padding: .5rem 1.25rem;
-    border-radius: 8px;
+    border-radius: var(--r-sm);
 }
 
 /* INFO */
@@ -111,7 +111,7 @@
     align-items: center;
     background: rgba(6,235,212,0.1);
     border: 1px solid var(--border);
-    border-radius: 100px;
+    border-radius: var(--r-sm);
     padding: .2rem .75rem;
     font-size: .72rem;
     font-weight: 700;
@@ -135,28 +135,7 @@
     margin: 0;
 }
 
-/* CTA FINAL */
-
-.projects-cta {
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 3rem 2rem;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    background: rgba(6,235,212,0.04);
-    text-align: center;
-}
-
-.projects-cta p {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: rgba(255,255,255,0.8);
-}
+/* El CTA del final usa .cta-panel (style.css) */
 
 /* =========================
    MOBILE

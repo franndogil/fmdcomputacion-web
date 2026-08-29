@@ -7,16 +7,19 @@
 @media (prefers-reduced-motion: no-preference) {
 
   /* ── Reveal on scroll ──
-     Los elementos con .reveal arrancan ocultos y suben al entrar. */
+     Los elementos con .reveal arrancan ocultos y suben al entrar.
+     --el-transform deja que un elemento que ya tiene su propio transform
+     (por ejemplo .cta-panel, que va inclinado) lo conserve durante la
+     animación en lugar de perderlo. */
   .reveal {
     opacity: 0;
-    transform: translateY(26px);
+    transform: var(--el-transform, none) translateY(26px);
     transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);
     will-change: opacity, transform;
   }
   .reveal.in-view {
     opacity: 1;
-    transform: none;
+    transform: var(--el-transform, none);
   }
 
   /* ── Entrada del hero (al cargar) ── */
@@ -36,18 +39,23 @@
   }
 
   /* ── Entrada del hero de las páginas de proyecto ── */
+  .proyecto-hero .proyecto-breadcrumb,
   .proyecto-hero .proyecto-tag,
   .proyecto-hero h1,
   .proyecto-hero .proyecto-meta {
     animation: fmd-hero-up .8s cubic-bezier(.22,.61,.36,1) both;
   }
+  .proyecto-hero .proyecto-breadcrumb { animation-delay: 0s; }
   .proyecto-hero .proyecto-tag  { animation-delay: .05s; }
   .proyecto-hero h1             { animation-delay: .16s; }
   .proyecto-hero .proyecto-meta { animation-delay: .30s; }
 
+  /* Igual que .reveal: respeta el transform propio del elemento
+     (si no, la animación terminaba en "transform: none" y le borraba
+     la inclinación al .hero-badge). */
   @keyframes fmd-hero-up {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: none; }
+    from { opacity: 0; transform: var(--el-transform, none) translateY(22px); }
+    to   { opacity: 1; transform: var(--el-transform, none); }
   }
   @keyframes fmd-hero-in {
     from { opacity: 0; transform: scale(.92); }

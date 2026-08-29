@@ -8,37 +8,16 @@
       <meta name="robots" content="index, follow" />
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <link rel="shortcut icon" href="/favicon.ico" />
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/index.css">
-      <link rel="stylesheet" href="css/servicios.css">
-      <link rel="stylesheet" href="css/mobile.css">
-      <link rel="stylesheet" href="css/nav.css">
-      <link rel="stylesheet" href="css/animations.css">
+      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="/css/index.css">
+      <link rel="stylesheet" href="/css/servicios.css">
+      <link rel="stylesheet" href="/css/nav.css">
+      <link rel="stylesheet" href="/css/animations.css">
+      <script src="/js/layout.js"></script>
     </head>
     <body>
-      <!-- NAV -->
-      <nav id="main-nav">
-        <div class="nav-bar">
-          <a href="index.html" class="nav-logo"><img loading="eager" decoding="async" fetchpriority="high" src="/assets/navIcon.png" alt=""><span></span></a>
-          <ul class="nav-links">
-            <li><a href="/servicios.html">Servicios</a></li>
-            <li><a href="/proyectos.html">Proyectos</a></li>
-            <li><a href="/index.html#por-que">Nosotros</a></li>
-            <li><a href="/index.html#contacto">Contacto</a></li>
-          </ul>
-          <a href="https://wa.me/5491128352176" target="_blank" class="nav-cta">WhatsApp</a>
-          <button class="nav-hamburger" aria-label="Abrir menú" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-        <div class="nav-mobile-menu">
-          <a href="/servicios.html" onclick="closeMenu()">Servicios</a>
-          <a href="/proyectos.html" onclick="closeMenu()">Proyectos</a>
-          <a href="/index.html#por-que" onclick="closeMenu()">Nosotros</a>
-          <a href="/index.html#contacto" onclick="closeMenu()">Contacto</a>
-          <a href="https://wa.me/5491128352176" target="_blank" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>
-        </div>
-      </nav>
+      <!-- NAV (se genera en /js/layout.js) -->
+      <script>FMD.nav()</script>
 
       <!-- SERVICIOS -->
       <section id="servicios">
@@ -50,19 +29,19 @@
                 Atención rápida, precios claros y soporte confiable.</p>
           </div>
           <div id="filtros-bar" class="filtros-bar">
-            <button class="filtro-btn active" data-cat="az">A – Z</button>
-            <button class="filtro-btn" data-cat="armado">armado</button>
-            <button class="filtro-btn" data-cat="hardware">hardware</button>
-            <button class="filtro-btn" data-cat="limpieza">limpieza</button>
-            <button class="filtro-btn" data-cat="redes">redes</button>
-            <button class="filtro-btn" data-cat="reparacion">reparacion</button>
-            <button class="filtro-btn" data-cat="software">software</button>
-            <button class="filtro-btn" data-cat="web">web</button>
+            <button class="filtro-btn active" data-cat="az"><span>A – Z</span></button>
+            <button class="filtro-btn" data-cat="armado"><span>armado</span></button>
+            <button class="filtro-btn" data-cat="hardware"><span>hardware</span></button>
+            <button class="filtro-btn" data-cat="limpieza"><span>limpieza</span></button>
+            <button class="filtro-btn" data-cat="redes"><span>redes</span></button>
+            <button class="filtro-btn" data-cat="reparacion"><span>reparacion</span></button>
+            <button class="filtro-btn" data-cat="software"><span>software</span></button>
+            <button class="filtro-btn" data-cat="web"><span>web</span></button>
           </div>
           <div id="servicios-container">
             <div class="services-grid">
         <div class="service-card" data-cat="hardware" data-titulo="Actualización y mejora de hardware" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/ACTUALIZACIÓN.jpg" alt="Actualización y mejora de hardware" />
+            <img loading="eager" fetchpriority="high" decoding="async" width="1080" height="1080" src="/assets/img-services/ACTUALIZACIÓN.jpg" alt="Actualización y mejora de hardware" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Actualización y mejora de hardware</h3>
@@ -70,14 +49,14 @@
                 </div>
                 <div class="service-details">
                     <p>Actualizamos y mejoramos el rendimiento de tu computadora mediante la instalación o reemplazo de componentes como memoria RAM, discos SSD, fuente o placa de video. Incluye revisión básica del equipo y verificación de funcionamiento para asegurar un resultado óptimo.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20actualizaci%C3%B3n%20y%20mejora%20de%20hardware.%20Quisiera%20instalar%20o%20reemplazar%20componentes%20en%20mi%20computadora%20y%20saber%20el%20costo%20seg%C3%BAn%20mi%20equipo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20actualizaci%C3%B3n%20y%20mejora%20de%20hardware.%20Quisiera%20instalar%20o%20reemplazar%20componentes%20en%20mi%20computadora%20y%20saber%20el%20costo%20seg%C3%BAn%20mi%20equipo." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="armado" data-titulo="Armado de Computadora" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/ARMADO.jpg" alt="Armado de Computadora" />
+            <img loading="eager" fetchpriority="auto" decoding="async" width="1080" height="1080" src="/assets/img-services/ARMADO.jpg" alt="Armado de Computadora" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Armado de Computadora</h3>
@@ -85,14 +64,14 @@
                 </div>
                 <div class="service-details">
                     <p>Armamos tu computadora desde cero según lo que necesites y tu presupuesto. Nos encargamos de elegir los componentes adecuados y dejar todo listo para que funcione perfecto desde el primer momento.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20armado%20de%20computadora%2C%20quiero%20armar%20una%20PC%20a%20medida." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20armado%20de%20computadora%2C%20quiero%20armar%20una%20PC%20a%20medida." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="armado" data-titulo="Asesoramiento" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/ASESORAMIENTO.jpg" alt="Asesoramiento" />
+            <img loading="eager" fetchpriority="auto" decoding="async" width="1080" height="1080" src="/assets/img-services/ASESORAMIENTO.jpg" alt="Asesoramiento" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Asesoramiento</h3>
@@ -100,14 +79,14 @@
                 </div>
                 <div class="service-details">
                     <p>Te ayudamos a elegir la mejor opción según lo que realmente necesitás. Ya sea para comprar una computadora, mejorar la que tenés o resolver alguna duda puntual, te orientamos de forma clara y sin vueltas para que tomes una buena decisión.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20asesoramiento%20para%20una%20computadora." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20asesoramiento%20para%20una%20computadora." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="reparacion" data-titulo="Diagnóstico de PC" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/DIAGNOSTICO.jpg" alt="Diagnóstico de PC" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/DIAGNOSTICO.jpg" alt="Diagnóstico de PC" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Diagnóstico de PC</h3>
@@ -115,14 +94,14 @@
                 </div>
                 <div class="service-details">
                     <p>Revisamos tu computadora a fondo para detectar fallas de hardware o software que estén afectando su rendimiento. Te damos un diagnóstico claro y te explicamos la mejor solución, sin vueltas.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20revisi%C3%B3n%20de%20computadora%2C%20quiero%20saber%20qu%C3%A9%20problema%20tiene%20mi%20PC." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20revisi%C3%B3n%20de%20computadora%2C%20quiero%20saber%20qu%C3%A9%20problema%20tiene%20mi%20PC." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="web" data-titulo="Diseño de Página Web Profesional" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/DISEÑO WEB.jpg" alt="Diseño de Página Web Profesional" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/DISEÑO WEB.jpg" alt="Diseño de Página Web Profesional" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Diseño de Página Web Profesional</h3>
@@ -130,14 +109,14 @@
                 </div>
                 <div class="service-details">
                     <p>Creamos páginas web modernas, rápidas y adaptadas a tu negocio para que puedas mostrar tus servicios, recibir consultas y generar más clientes.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20dise%C3%B1o%20de%20p%C3%A1ginas%20web.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%2C%20qu%C3%A9%20incluye%20y%20cu%C3%A1l%20ser%C3%ADa%20el%20costo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20dise%C3%B1o%20de%20p%C3%A1ginas%20web.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%2C%20qu%C3%A9%20incluye%20y%20cu%C3%A1l%20ser%C3%ADa%20el%20costo." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="software" data-titulo="Formateo + BackUp + Instalación de Sistema Operativo" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/FORMATEO.jpg" alt="Formateo + BackUp + Instalación de Sistema Operativo" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/FORMATEO.jpg" alt="Formateo + BackUp + Instalación de Sistema Operativo" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Formateo + BackUp + Instalación de Sistema Operativo</h3>
@@ -145,14 +124,14 @@
                 </div>
                 <div class="service-details">
                     <p>Hacemos una limpieza completa del equipo, guardamos tus archivos importantes y reinstalamos el sistema desde cero para que la computadora vuelva a funcionar rápida y sin errores.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20formateo%20con%20backup%20e%20instalaci%C3%B3n%20de%20sistema%2C%20quiero%20dejar%20la%20PC%20como%20nueva%20sin%20perder%20mis%20archivos." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20formateo%20con%20backup%20e%20instalaci%C3%B3n%20de%20sistema%2C%20quiero%20dejar%20la%20PC%20como%20nueva%20sin%20perder%20mis%20archivos." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="software" data-titulo="Inicialización de equipo nuevo" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/INICIALIZACION.jpg" alt="Inicialización de equipo nuevo" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/INICIALIZACION.jpg" alt="Inicialización de equipo nuevo" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Inicialización de equipo nuevo</h3>
@@ -160,14 +139,14 @@
                 </div>
                 <div class="service-details">
                     <p>Dejamos tu computadora nueva lista para usar desde el primer momento. Configuramos el sistema, instalamos lo necesario y ajustamos todo para que funcione rápido y sin complicaciones.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20inicializaci%C3%B3n%20de%20equipo%20nuevo%2C%20quiero%20dejar%20la%20PC%20lista%20para%20usar." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20inicializaci%C3%B3n%20de%20equipo%20nuevo%2C%20quiero%20dejar%20la%20PC%20lista%20para%20usar." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="redes" data-titulo="Instalación de cámaras de seguridad" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/CAMARAS.jpg" alt="Instalación de cámaras de seguridad" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/CAMARAS.jpg" alt="Instalación de cámaras de seguridad" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Instalación de cámaras de seguridad</h3>
@@ -175,14 +154,14 @@
                 </div>
                 <div class="service-details">
                     <p>Instalamos cámaras de seguridad cableadas o IP, dejando todo configurado para que puedas monitorear tu hogar o negocio desde el celular de forma simple y segura.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20la%20instalaci%C3%B3n%20de%20c%C3%A1maras%20de%20seguridad.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%20y%20el%20costo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20la%20instalaci%C3%B3n%20de%20c%C3%A1maras%20de%20seguridad.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%20y%20el%20costo." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="redes" data-titulo="Instalación de red cableada" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/RED CABLEADA.jpg" alt="Instalación de red cableada" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/RED CABLEADA.jpg" alt="Instalación de red cableada" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Instalación de red cableada</h3>
@@ -190,14 +169,14 @@
                 </div>
                 <div class="service-details">
                     <p>Realizamos instalación de red por cable de forma prolija y segura, incluyendo tendido de cables, armado de conectores RJ45 y organización para una conexión estable y de alta velocidad.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20la%20instalaci%C3%B3n%20de%20red%20cableada.%20Necesito%20armar%20o%20mejorar%20la%20conexi%C3%B3n%20por%20cable%20en%20mi%20casa%20o%20negocio%20y%20quisiera%20saber%20el%20costo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20la%20instalaci%C3%B3n%20de%20red%20cableada.%20Necesito%20armar%20o%20mejorar%20la%20conexi%C3%B3n%20por%20cable%20en%20mi%20casa%20o%20negocio%20y%20quisiera%20saber%20el%20costo." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="limpieza" data-titulo="Limpieza de Hardware + Reemplazo de pasta térmica" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/LIMPIEZA HARDWARE.jpg" alt="Limpieza de Hardware + Reemplazo de pasta térmica" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/LIMPIEZA HARDWARE.jpg" alt="Limpieza de Hardware + Reemplazo de pasta térmica" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Limpieza de Hardware + Reemplazo de pasta térmica</h3>
@@ -205,14 +184,14 @@
                 </div>
                 <div class="service-details">
                     <p>Hacemos una limpieza interna completa y cambiamos la pasta térmica del procesador para mejorar la refrigeración. Ideal si la computadora levanta temperatura, hace ruido o perdió rendimiento con el uso.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20limpieza%20de%20hardware%20con%20cambio%20de%20pasta%20t%C3%A9rmica%2C%20mi%20PC%20est%C3%A1%20levantando%20temperatura." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20limpieza%20de%20hardware%20con%20cambio%20de%20pasta%20t%C3%A9rmica%2C%20mi%20PC%20est%C3%A1%20levantando%20temperatura." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="software" data-titulo="Limpieza de Software y Optimización" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/LIMPIEZA SOFTWARE.jpg" alt="Limpieza de Software y Optimización" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/LIMPIEZA SOFTWARE.jpg" alt="Limpieza de Software y Optimización" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Limpieza de Software y Optimización</h3>
@@ -220,14 +199,14 @@
                 </div>
                 <div class="service-details">
                     <p>Hacemos una puesta a punto completa de tu equipo: eliminamos programas innecesarios, virus y archivos que lo ralentizan, y ajustamos el sistema para que vuelva a funcionar ágil y sin trabas. Ideal si la computadora está lenta, tarda en arrancar o se cuelga seguido.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20limpieza%20de%20software%20y%20optimizaci%C3%B3n%2C%20mi%20PC%20est%C3%A1%20lenta." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Consulto%20por%20limpieza%20de%20software%20y%20optimizaci%C3%B3n%2C%20mi%20PC%20est%C3%A1%20lenta." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="software" data-titulo="Migración de sistema a SSD (sin perder archivos)" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/MIGRACIÓN.jpg" alt="Migración de sistema a SSD (sin perder archivos)" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/MIGRACIÓN.jpg" alt="Migración de sistema a SSD (sin perder archivos)" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Migración de sistema a SSD (sin perder archivos)</h3>
@@ -235,14 +214,14 @@
                 </div>
                 <div class="service-details">
                     <p>Pasamos tu sistema al nuevo SSD sin perder archivos ni configuraciones, mejorando notablemente la velocidad de tu computadora.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20migraci%C3%B3n%20a%20SSD.%20Quisiera%20pasar%20mi%20sistema%20al%20nuevo%20disco%20sin%20perder%20archivos%20y%20saber%20el%20costo%20seg%C3%BAn%20mi%20equipo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20migraci%C3%B3n%20a%20SSD.%20Quisiera%20pasar%20mi%20sistema%20al%20nuevo%20disco%20sin%20perder%20archivos%20y%20saber%20el%20costo%20seg%C3%BAn%20mi%20equipo." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="service-card" data-cat="redes" data-titulo="Sistema de Comanderas para Gastronomía" onclick="this.classList.toggle('open')">
-            <img loading="lazy" decoding="async" src="/assets/img-services/COMANDERAS.jpg" alt="Sistema de Comanderas para Gastronomía" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="/assets/img-services/COMANDERAS.jpg" alt="Sistema de Comanderas para Gastronomía" />
             <div class="service-body">
                 <div class="service-summary">
                     <h3>Sistema de Comanderas para Gastronomía</h3>
@@ -250,7 +229,7 @@
                 </div>
                 <div class="service-details">
                     <p>Instalamos y configuramos sistemas de comandera para restaurantes, bares y negocios gastronómicos. Realizamos la conexión de impresoras, red, tablets y software para optimizar la toma de pedidos y mejorar la organización del local.</p>
-                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20sistema%20de%20comanderas%20para%20gastronom%C3%ADa.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%2C%20qu%C3%A9%20incluye%20y%20cu%C3%A1l%20ser%C3%ADa%20el%20costo." target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:1.25rem" onclick="event.stopPropagation()">
+                    <a href="https://wa.me/5491128352176?text=Hola!%20Me%20comunico%20para%20consultar%20por%20el%20servicio%20de%20sistema%20de%20comanderas%20para%20gastronom%C3%ADa.%20Quisiera%20saber%20c%C3%B3mo%20es%20el%20servicio%2C%20qu%C3%A9%20incluye%20y%20cu%C3%A1l%20ser%C3%ADa%20el%20costo." target="_blank" class="btn-primary btn-block" onclick="event.stopPropagation()">
                         Consultar por WhatsApp
                     </a>
                 </div>
@@ -261,43 +240,12 @@
         </div>
       </section>
 
-      <!-- FOOTER -->
-      <footer>
-        <div class="footer-inner">
-          <div class="footer-brand">
-            <div class="nav-logo"><img loading="lazy" decoding="async" src="/assets/navIcon.png" alt=""><span style="color:var(--accent)"></span></div>
-            <p>PCs, redes, cámaras y soluciones IT · Quilmes, BA</p>
-          </div>
-          <div class="footer-links">
-            <a href="/servicios.html">Servicios</a>
-            <a href="/proyectos.html">Proyectos</a>
-            <a href="/faqs.html">FAQs</a>
-            <a href="/index.html#contacto">Contacto</a>
-          </div>
-          <div class="footer-social">
-            <a href="https://wa.me/5491128352176" target="_blank" class="social-btn" title="WhatsApp"><img loading="lazy" decoding="async" src="/assets/icons/whatsapp_white.png" alt=""></a>
-            <a href="https://www.instagram.com/fmdcomputacion/" target="_blank" class="social-btn" title="Instagram"><img loading="lazy" decoding="async" src="/assets/icons/instragram_white.png" alt=""></a>
-            <a href="https://www.tiktok.com/@fmdcomputacion" target="_blank" class="social-btn" title="TikTok"><img loading="lazy" decoding="async" src="/assets/icons/tiktok_white.png" alt=""></a>
-            <a href="https://www.youtube.com/@FMD_Vlogs" target="_blank" class="social-btn" title="YouTube"><img loading="lazy" decoding="async" src="/assets/icons/youtube_white.png" alt=""></a>
-            <a href="https://www.facebook.com/FMDCOMPUTACION" target="_blank" class="social-btn" title="Facebook"><img loading="lazy" decoding="async" src="/assets/icons/facebook_white.png" alt=""></a>
-            <a href="mailto:fmdcomputacion@gmail.com" class="social-btn" title="Email"><img loading="lazy" decoding="async" src="/assets/icons/email_white.png" alt=""></a>
-          </div>
-        </div>
-        <div class="footer-copy">
-            © 2026 FMDCOMPUTACION · Quilmes, Buenos Aires · +54 9 11 2835-2176<br>
-            <p>Lunes a Viernes de 9:00 a 19:00<br>Sábados de 9:00 a 14:00</p>
-          </div>
-      </footer>
-
-      <!-- WHATSAPP FLOAT -->
-      <a href="https://wa.me/5491128352176?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar" target="_blank" class="wa-float" title="Escribinos por WhatsApp">
-        <img loading="lazy" decoding="async" src="/assets/icons/whatsapp_white_button.png" alt="">
-      </a>
+      <!-- FOOTER + FLOAT DE WHATSAPP (se generan en /js/layout.js) -->
+      <script>FMD.footer()</script>
 
       <!-- Scripts -->
-      <script src="js/nav.js"></script>
-      <script src="js/servicios.js"></script>
-      <script src="js/reveal.js"></script>
+      <script src="/js/servicios.js"></script>
+      <script src="/js/reveal.js"></script>
 
   </body>
 </html>

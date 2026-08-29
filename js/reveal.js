@@ -7,8 +7,32 @@
    sobrevive a re-renders y filtros que mueven las cards.
    Al terminar la animación limpia las clases para no interferir
    con los :hover de las cards (transform).
+
+   Expone window.FMDReveal.limpiar(raiz) para que una lista que se
+   vuelve a dibujar por una acción del usuario (por ejemplo los
+   filtros de servicios) aparezca al instante en vez de animarse.
    ───────────────────────────────────────────── */
 (function () {
+  'use strict';
+
+  var CLASES = ['reveal', 'in-view'];
+
+  /* Quita el estado de reveal de raiz y de sus hijos: se ven ya.
+     Se define siempre, incluso si no vamos a animar nada, así quien
+     la llama no necesita preguntar. */
+  window.FMDReveal = {
+    limpiar: function (raiz) {
+      if (!raiz) return;
+      var todos = [raiz].concat(Array.prototype.slice.call(raiz.querySelectorAll('.reveal')));
+      todos.forEach(function (el) {
+        el.classList.remove(CLASES[0], CLASES[1]);
+        el.style.transitionDelay = '';
+        el.style.willChange = '';
+        if (io) io.unobserve(el);
+      });
+    }
+  };
+
   // Respetar "reducir movimiento": no ocultamos nada.
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (!('IntersectionObserver' in window)) return;
@@ -23,12 +47,9 @@
     '.about-text',
     '.contact-info',
     '.contact-form',
-    '.faqs .footer-faq-cta',
-    '.projects-cta',
-    '.faqs-cta',
     '.carousel-section',
     '.sidebar-card',
-    '.proyecto-cta'
+    '.cta-panel'
   ];
 
   // Contenedores cuyos hijos se revelan en cascada.
@@ -43,7 +64,10 @@
     '.proyecto-descripcion'
   ];
 
-  var STAGGER = 90; // ms entre cada hijo
+  var STAGGER = 70;      // ms entre cada hijo
+  var MAX_PASOS = 5;     // tope de la cascada: con 13 cards, la última
+                         // esperaba más de un segundo. Ahora el retardo
+                         // nunca pasa de MAX_PASOS * STAGGER.
 
   var io = new IntersectionObserver(function (entries, obs) {
     entries.forEach(function (entry) {
@@ -51,7 +75,12 @@
       show(entry.target);
       obs.unobserve(entry.target);
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  }, {
+    threshold: 0.01,
+    // Margen positivo abajo: empezamos a revelar un poco ANTES de que
+    // el elemento entre en pantalla, así llega ya visible.
+    rootMargin: '0px 0px 12% 0px'
+  });
 
   function show(el) {
     el.classList.add('in-view');
@@ -81,7 +110,7 @@
   GROUPS.forEach(function (sel) {
     document.querySelectorAll(sel).forEach(function (group) {
       Array.prototype.slice.call(group.children).forEach(function (child, i) {
-        prepare(child, i * STAGGER);
+        prepare(child, Math.min(i, MAX_PASOS) * STAGGER);
       });
     });
   });
