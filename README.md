@@ -56,8 +56,6 @@ Sitio web de FMDCOMPUTACION, mi marca personal de servicio técnico de computaci
 
 ## Capturas
 
-> Agregar imágenes aquí.
-
 ---
 
 ## Arquitectura
