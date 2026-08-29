@@ -39,7 +39,7 @@
     ];
 
     var REDES = [
-        { title: 'WhatsApp',  href: WA,                                        icon: 'whatsapp_white.png' },
+        { title: 'WhatsApp',  href: null,                                        icon: 'whatsapp_white.png' },
         { title: 'Instagram', href: 'https://www.instagram.com/fmdcomputacion/', icon: 'instragram_white.png' },
         { title: 'TikTok',    href: 'https://www.tiktok.com/@fmdcomputacion',    icon: 'tiktok_white.png' },
         { title: 'YouTube',   href: 'https://www.youtube.com/@FMD_Vlogs',        icon: 'youtube_white.png' },
@@ -70,6 +70,30 @@
                path.indexOf('/' + seccion + '/') === 0;
     }
 
+    /* ── Mensajes de WhatsApp ──
+       Quedan abiertos a propósito (sin punto final): la persona completa
+       la frase y el mensaje llega con el caso concreto en vez de un "hola".
+       El texto cambia según dónde estaba parada cuando tocó el botón. */
+    function nombreDeLaPagina() {
+        return (document.title.split('|')[0] || '').trim();
+    }
+
+    function mensaje() {
+        if (path.indexOf('/proyectos/') === 0)
+            return 'Hola Franco! Vi el proyecto "' + nombreDeLaPagina() + '" y quiero algo parecido para';
+        if (path.indexOf('/proyectos.html') === 0)
+            return 'Hola Franco! Estuve viendo los proyectos y quiero algo parecido para';
+        if (path.indexOf('/servicios.html') === 0)
+            return 'Hola Franco! Estuve viendo los servicios. Me pasa que';
+        if (path.indexOf('/faqs.html') === 0)
+            return 'Hola Franco! Leí las preguntas frecuentes y me quedó una duda:';
+        return 'Hola Franco! Te escribo desde la web. Me pasa que';
+    }
+
+    function wa() {
+        return WA + '?text=' + encodeURIComponent(mensaje());
+    }
+
     function linkAttrs(link) {
         return 'href="' + href(link) + '"' + (esActual(link) ? ' aria-current="page"' : '');
     }
@@ -97,13 +121,13 @@
                          'loading="eager" decoding="async" fetchpriority="high">' +
                 '</a>' +
                 '<ul class="nav-links">' + escritorio + '</ul>' +
-                '<a href="' + WA + '" target="_blank" rel="noopener" class="nav-btn"><span>WhatsApp</span></a>' +
+                '<a href="' + wa() + '" target="_blank" rel="noopener" class="nav-btn"><span>WhatsApp</span></a>' +
                 '<button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMenu()">' +
                     '<span></span><span></span><span></span>' +
                 '</button>' +
             '</div>' +
             '<div class="nav-mobile-menu">' + movil +
-                '<a href="' + WA + '" target="_blank" rel="noopener" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>' +
+                '<a href="' + wa() + '" target="_blank" rel="noopener" class="nav-mobile-cta" onclick="closeMenu()">WhatsApp</a>' +
             '</div>' +
         '</nav>';
     }
@@ -114,7 +138,8 @@
         }).join('');
 
         var redes = REDES.map(function (r) {
-            return '<a href="' + r.href + '"' + externo(r.href) + ' class="social-btn" title="' + r.title + '">' +
+            var url = r.href || wa();
+            return '<a href="' + url + '"' + externo(url) + ' class="social-btn" title="' + r.title + '">' +
                        '<img src="/assets/icons/' + r.icon + '" alt="' + r.title + '" ' +
                             'width="20" height="20" loading="lazy" decoding="async">' +
                    '</a>';
@@ -137,7 +162,7 @@
                 '<p>' + HORARIOS + '</p>' +
             '</div>' +
         '</footer>' +
-        '<a href="' + WA + '?text=Hola!%20Vi%20tu%20web%20y%20quiero%20consultar" target="_blank" rel="noopener" ' +
+        '<a href="' + wa() + '" target="_blank" rel="noopener" ' +
            'class="wa-float" title="Escribinos por WhatsApp">' +
             '<img src="/assets/icons/whatsapp_white_button.png" alt="" width="40" height="40" loading="lazy" decoding="async">' +
         '</a>';
@@ -149,7 +174,7 @@
         '<div class="proyecto-cta-section">' +
             '<div class="cta-panel">' +
                 '<p>¿Querés un proyecto similar?</p>' +
-                '<a href="' + WA + '?text=Hola!%20Vi%20un%20proyecto%20y%20quiero%20consultar" ' +
+                '<a href="' + wa() + '" ' +
                    'target="_blank" rel="noopener" class="btn-primary">' +
                     '<span>Escribinos por WhatsApp</span>' +
                 '</a>' +

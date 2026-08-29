@@ -104,9 +104,9 @@
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
     }
-    .service-card img{
-      width:30px;
-    }
+    /* Solo el ícono del home. Antes era .service-card img y chocaba con
+       la foto de servicios.html, que carga este mismo archivo. */
+    .service-icon img { width: 30px; }
     .service-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -327,7 +327,7 @@
       color: var(--accent); font-weight: 900; font-size: 1rem;
       border: 1px solid var(--border);
     }
-    .why-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
+    .why-item h4,
     .why-item p { font-size: .85rem; color: rgba(255,255,255,0.6); }
 
     /* ── Sobre mí ── */
