@@ -38,8 +38,10 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 190px;
-      height: 190px;
+      /* 95% = los 190px sobre 200px del hero. En % el anillo mantiene su
+         grosor relativo cuando se agranda el círculo en otra sección. */
+      width: 95%;
+      height: 95%;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       object-fit: cover;
@@ -332,6 +334,15 @@
 
     /* ── Sobre mí ── */
     #sobre-mi { background: var(--bg); }
+    /* La sección son dos bloques (historia + quién está detrás): título
+       arriba y texto abajo a todo el ancho, separados por una línea. */
+    #sobre-mi .section-title { margin-bottom: 0; }
+    #sobre-mi .section-head { margin-bottom: 1.75rem; }
+    .about-block + .about-block {
+      margin-top: 4rem;
+      padding-top: 4rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
     .about-grid {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
@@ -339,11 +350,29 @@
       align-items: center;
     }
     .about-photo { display: flex; justify-content: center; }
+    /* Bloque "Sobre mí": mitad foto, mitad texto. */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    /* El círculo va más grande que el del hero, pegado a la izquierda y
+       corrido hacia abajo para armar diagonal con el título. */
+    #sobre-mi .profile-photo-wrap {
+      width: min(320px, 68vw);
+      height: min(320px, 68vw);
+    }
+    #sobre-mi .about-photo {
+      justify-content: flex-start;
+      margin-top: 2.5rem;
+    }
     .about-text p {
       color: rgba(255,255,255,0.7);
       line-height: 1.7;
       margin-bottom: 1.25rem;
     }
+    .about-text p:last-child { margin-bottom: 0; }
     .about-highlights {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -427,7 +456,9 @@
       .stats-bar-inner { grid-template-columns: repeat(2,1fr); }
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-grid { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
-      .about-text p { max-width: 560px; margin-left: auto; margin-right: auto; }
+      .about-block + .about-block { margin-top: 3rem; padding-top: 3rem; }
+      .about-split { grid-template-columns: 1fr; gap: 2rem; }
+      #sobre-mi .about-photo { justify-content: center; margin-top: 0; }
       .about-highlights { text-align: left; }
     }
     @media (max-width: 640px) {
