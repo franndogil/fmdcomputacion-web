@@ -40,8 +40,7 @@
   // Elementos que se revelan enteros.
   var SINGLES = [
     '.section-head',
-    '.proyectos-header',
-    '.faqs-header',
+    '.page-header',
     '.filtros-bar',
     '.about-photo',
     '.about-text',
