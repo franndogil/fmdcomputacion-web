@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────
-   LAYOUT COMPARTIDO — FMDCOMPUTACION
+   LAYOUT COMPARTIDO — FMD Computación
 
    Nav, footer y botón flotante de WhatsApp viven acá y solo acá.
    Cada página los inserta en el punto exacto donde va el bloque:
@@ -158,7 +158,7 @@
                 '<div class="footer-social">' + redes + '</div>' +
             '</div>' +
             '<div class="footer-copy">' +
-                '© ' + new Date().getFullYear() + ' FMDCOMPUTACION · Quilmes, Buenos Aires · +54 9 11 2835-2176' +
+                '© ' + new Date().getFullYear() + ' FMD Computación · Quilmes, Buenos Aires · +54 9 11 2835-2176' +
                 '<p>' + HORARIOS + '</p>' +
             '</div>' +
         '</footer>' +

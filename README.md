@@ -1,6 +1,6 @@
-# FMDCOMPUTACION – Sitio web
+# FMD Computación – Sitio web
 
-Sitio web de FMDCOMPUTACION, mi marca personal de servicio técnico de computación en Quilmes, Buenos Aires. Presenta los servicios que ofrezco, un catálogo filtrable, los proyectos que fui realizando y los canales de contacto. Incluye además un panel de administración propio con autenticación mediante Supabase.
+Sitio web de FMD Computación, mi marca personal de servicio técnico de computación en Quilmes, Buenos Aires. Presenta los servicios que ofrezco, un catálogo filtrable, los proyectos que fui realizando y los canales de contacto. Incluye además un panel de administración propio con autenticación mediante Supabase.
 
 **Sitio en producción:** https://fmdcomputacion.com/
 

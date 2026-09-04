@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────
-   FAQS — FMDCOMPUTACION
+   FAQS — FMD Computación
    Acordeón: cada tarjeta abre y cierra su respuesta.
    ───────────────────────────────────────────── */
 (function () {

@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────
-   Reveal on scroll — FMDCOMPUTACION
+   Reveal on scroll — FMD Computación
    Agrega .in-view a los elementos cuando entran en pantalla.
    Los grupos revelan sus hijos en cascada (stagger).
 

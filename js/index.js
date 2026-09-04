@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────
-   HOME — FMDCOMPUTACION
+   HOME — FMD Computación
    Slider de proyectos (drag, flechas y dots) y botón flotante
    "Ver servicios" que aparece mientras se recorre la sección.
    ───────────────────────────────────────────── */

@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────
-   CARRUSEL DE PROYECTO — FMDCOMPUTACION
+   CARRUSEL DE PROYECTO — FMD Computación
    Usado por todas las páginas de /proyectos/.
 
    La página solo pone las imágenes:
