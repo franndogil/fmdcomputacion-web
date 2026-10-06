@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Venta de entradas online para Dickinson | FMD Computación</title>
+    <meta name="description" content="Desarrollo de un sistema de venta de entradas para los eventos de Dickinson, en La Plata: compra con MercadoPago, entradas con QR por mail, control de acceso en la puerta y panel de gestión." />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/proyecto.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <script src="/js/layout.js"></script>
+</head>
+<body>
+
+<!-- NAV (se genera en /js/layout.js) -->
+<script>FMD.nav()</script>
+
+
+<!-- HERO  — encabezado del proyecto -->
+<header class="proyecto-hero">
+
+    <nav class="proyecto-breadcrumb" aria-label="Ruta de navegación">
+        <a href="/index.html">Inicio</a>
+        <span>›</span>
+        <a href="/proyectos.html">Proyectos</a>
+        <span>›</span>
+        <span aria-current="page">Venta de entradas online para Dickinson</span>
+    </nav>
+
+    <div class="proyecto-tag">Web | Eventos</div>
+
+    <h1>Venta de entradas online para <em>Dickinson</em></h1>
+
+    <div class="proyecto-meta">
+        <div class="proyecto-meta-item">Octubre 2026</div>
+        <div class="proyecto-meta-dot"></div>
+        <div class="proyecto-meta-item">La Plata, BA</div>
+        <div class="proyecto-meta-dot"></div>
+        <div class="proyecto-meta-item">Desarrollo completo</div>
+    </div>
+
+</header>
+
+
+<!-- CARRUSEL DE IMÁGENES -->
+<div class="carousel-section">
+    <div class="carousel" id="carousel">
+
+        <div class="carousel-track" id="carousel-track">
+
+            <div class="carousel-slide">
+                <img loading="lazy" decoding="async" src="/proyectos/venta-de-entradas-online-para-Dickinson/img/1.jpg" alt="Tres pantallas del sitio en el celular: la cartelera de eventos, la página de un evento con su flyer y precio, y el formulario de compra" />
+            </div>
+            <div class="carousel-slide">
+                <img loading="lazy" decoding="async" src="/proyectos/venta-de-entradas-online-para-Dickinson/img/2.jpg" alt="Tres pantallas del sitio en el celular: los datos del comprador con el total a pagar, el reenvío de entradas por DNI y el acceso al panel" />
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- CONTENIDO PRINCIPAL-->
+<div class="proyecto-content">
+    <div class="proyecto-layout">
+
+        <!-- ── DESCRIPCIÓN ── -->
+        <div class="proyecto-descripcion">
+
+            <!-- Bloque 1: descripción general -->
+            <div>
+                <h2>Sobre el proyecto</h2>
+                <p>
+                    Dickinson, además de restobar, organiza fiestas y shows en su salón de La Plata,
+                    muchos de ellos junto a organizadores externos. Necesitaba vender las entradas
+                    online con su propia marca, cobrarlas por MercadoPago, controlar el ingreso en la
+                    puerta y saber, en cada evento, cuánto le corresponde a cada parte.
+                </p>
+                <p>
+                    El sistema tiene tres piezas: la tienda pública, donde se compra la entrada desde
+                    el celular; un panel interno para el staff, con permisos según el rol; y el escáner
+                    de códigos QR que se usa en la puerta la noche del evento. Está en producción.
+                </p>
+            </div>
+
+            <!-- Bloque 2: proceso o solución -->
+            <div>
+                <h2>Lo que hicimos</h2>
+                <ul>
+                    <li>Cartelera pública con los eventos, su flyer, fecha y precio, diseñada primero para el celular.</li>
+                    <li>Compra de hasta 4 entradas por operación, cada una a nombre de una persona con su DNI, y pago con MercadoPago.</li>
+                    <li>Reserva del lugar mientras se paga, para que nunca se vendan más entradas que la capacidad del salón.</li>
+                    <li>Envío automático de las entradas por mail con su código QR, y reenvío con el DNI si el mail se pierde.</li>
+                    <li>Control de acceso desde el celular: escaneo del QR o ingreso por DNI para quien no tiene el código. Cada entrada se usa una sola vez, aunque se presente la misma captura en dos puertas a la vez.</li>
+                    <li>Devoluciones hasta 48 horas antes del evento, con el reintegro automático por MercadoPago.</li>
+                    <li>Panel con roles para administración, organizadores y control de acceso. El staff se da de alta por invitación por mail, sin compartir contraseñas.</li>
+                    <li>Liquidación por evento: entradas vendidas y usadas, recaudación, alquiler del salón y reparto entre Dickinson y el organizador.</li>
+                    <li>Puesta en producción con Docker en Railway y base de datos PostgreSQL.</li>
+                </ul>
+            </div>
+
+            <!-- Bloque 3: resultado -->
+            <div>
+                <h2>Resultado</h2>
+                <p>
+                    Dickinson vende hoy las entradas de sus eventos desde su propia web, sin plataformas
+                    de ticketing de terceros. El público compra desde el celular en un par de minutos y
+                    recibe sus entradas por mail; en la puerta, el staff valida cada QR con su teléfono.
+                    Al cierre de cada evento, el panel muestra cuánto se recaudó y cuánto le toca a cada
+                    parte, sin planillas ni cuentas a mano.
+                </p>
+            </div>
+        </div>
+
+        <!-- ── SIDEBAR — detalles del proyecto ── -->
+        <aside class="proyecto-sidebar">
+            <div class="sidebar-card">
+                <h3>Detalles del proyecto</h3>
+
+                <div class="detail-item">
+                    <div class="detail-label">Categoría</div>
+                    <div class="detail-value">Desarrollo web</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Cliente</div>
+                    <div class="detail-value">Dickinson Restobar</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Fecha</div>
+                    <div class="detail-value">Octubre 2026</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Zona</div>
+                    <div class="detail-value">Av. 7 y 48, La Plata, Buenos Aires</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Componentes / Tecnologías</div>
+                    <div class="sidebar-tags">
+                        <span class="sidebar-tag">React</span>
+                        <span class="sidebar-tag">TypeScript</span>
+                        <span class="sidebar-tag">Tailwind CSS</span>
+                        <span class="sidebar-tag">.NET</span>
+                        <span class="sidebar-tag">PostgreSQL</span>
+                        <span class="sidebar-tag">MercadoPago</span>
+                        <span class="sidebar-tag">Railway</span>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label">Estado del proyecto</div>
+                    <div class="detail-value">Finalizado</div>
+                </div>
+
+                <a href="https://wa.me/5491128352176?text=Hola%20Franco!%20Vi%20el%20proyecto%20de%20venta%20de%20entradas%20de%20Dickinson%20y%20quiero%20algo%20parecido%20para"
+                   target="_blank"
+                   class="sidebar-cta">
+                    Pedir presupuesto similar
+                </a>
+
+                <a href="https://dickinsonentradas-production.up.railway.app/"
+                   target="_blank" rel="noopener"
+                   class="sidebar-cta sidebar-cta--ghost">
+                    Ver el sitio en vivo →
+                </a>
+            </div>
+        </aside>
+    </div>
+</div>
+
+
+<!-- CTA FINAL-->
+<script>FMD.ctaProyecto()</script>
+
+
+<!-- FOOTER + FLOAT DE WHATSAPP (se generan en /js/layout.js) -->
+<script>FMD.footer()</script>
+
+
+<!-- SCRIPTS-->
+<script src="/js/lightbox.js"></script>
+<script src="/js/reveal.js"></script>
+<script src="/js/carousel.js"></script>
+
+</body>
+</html>
